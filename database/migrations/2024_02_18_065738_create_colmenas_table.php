@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id()->comment('Identificador único de la colmena'); // Comentario sobre el campo id
             $table->string('nombre')->comment('Nombre de la colmena'); // Comentario sobre el campo nombre
             $table->date('fecha_inicio')->comment('Fecha de inicio de la colmena'); // Comentario sobre el campo fecha_inicio
-            $table->date('fecha_final')->comment('Fecha de finalización de la colmena'); // Comentario sobre el campo fecha_final
+            $table->date('fecha_final')->nullable()->comment('Fecha de finalización de la colmena'); // Comentario sobre el campo fecha_final
     
             $table->string('temperatura_minima')->nullable()->comment('Temperatura mínima registrada en la colmena'); // Comentario sobre el campo temperatura_minima
             $table->string('temperatura_maxima')->nullable()->comment('Temperatura máxima registrada en la colmena'); // Comentario sobre el campo temperatura_maxima

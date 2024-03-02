@@ -16,11 +16,9 @@ return new class extends Migration
             $table->id();
             $table->string('nombre_pais')->comment('El nombre del Pais');
             $table->string('codigo')->comment('Codigo del Pais');
-            $table->string('iso3166a1',3)->comment('Diminutivo nombre del pais');
-            $table->string('iso3166a2',2)->comment('Diminutivo nombre del pais');
-
-            $table->timestamps();
-            
+            $table->string('iso3166a1',2)->comment('Diminutivo nombre del pais');
+            $table->string('iso3166a2',3)->comment('Diminutivo nombre del pais');
+            $table->timestamps();    
         });
         DB::statement('ALTER TABLE pais COMMENT = "Tabla para almacenar los paises"');
     }

@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Tymon\JWTAuth\Facades\JWTAuth;
 
 class AuthController extends Controller
@@ -28,6 +30,7 @@ class AuthController extends Controller
      */
     public function me()
     {
+        // $user = User::find(auth()->id());
         return response()->json(auth()->user());
     }
 

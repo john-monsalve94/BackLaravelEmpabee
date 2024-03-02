@@ -16,8 +16,8 @@ return new class extends Migration
 
             $table->id();
             $table->string('nombre_identificacion')->comment('Nombre del tipo de identificación');
-            $table->integer('descripcion')->comment('Descripcion del tipo de identificación')->nullable();
-            $table->integer('diminutivo')->comment('Diminutivo de la identificación ejemplo cedula de ciudadanía C.C');
+            $table->text('descripcion')->comment('Descripcion del tipo de identificación')->nullable();
+            $table->string('diminutivo')->comment('Diminutivo de la identificación ejemplo cedula de ciudadanía C.C');
             $table->timestamps();
         });
         

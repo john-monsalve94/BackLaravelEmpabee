@@ -2,7 +2,6 @@
 
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\V1\ColmenaController;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 Route::group([
