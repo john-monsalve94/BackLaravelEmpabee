@@ -15,7 +15,7 @@ return new class extends Migration
             // Definición de la tabla siembras
             $table->comment('Almacena información sobre las siembras de las colmenas'); // Comentario sobre la tabla siembras
             $table->id()->comment('Identificador único de la siembra'); // Comentario sobre el campo id
-            $table->date('fecha_fin')->comment('Fecha de finalización de la siembra'); // Comentario sobre el campo fecha_fin
+            $table->date('fecha_fin')->nullable()->comment('Fecha de finalización de la siembra'); // Comentario sobre el campo fecha_fin
             $table->foreignId('colmenas_id')->references('id')->on('colmenas')->comment('ID de la colmena asociada a la siembra'); // Comentario sobre el campo colmenas_id (clave foránea)
             $table->timestamps(); // Comentario sobre los campos de registro de fecha de creación y actualización
         });

@@ -16,8 +16,6 @@ return new class extends Migration
             $table->comment('Almacena datos de producción'); // Comentario sobre la tabla produccions
             $table->id()->comment('Identificador único de la producción'); // Comentario sobre el campo id
             $table->double('cantidad_miel')->comment('Cantidad de miel producida'); // Comentario sobre el campo cantidad_miel
-            $table->double('cantidad_polen')->comment('Cantidad de polen producido'); // Comentario sobre el campo cantidad_polen
-            $table->double('cantidad_cera')->comment('Cantidad de cera producida'); // Comentario sobre el campo cantidad_cera
             $table->foreignId('siembra_id')->references('id')->on('siembras')->comment('ID de la siembra asociada a la producción'); // Comentario sobre el campo siembra_id (clave foránea)
             $table->timestamps(); // Comentario sobre los campos de registro de fecha de creación y actualización
         });

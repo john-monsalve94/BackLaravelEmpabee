@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('telefono',13)->comment('Número telefónico del usuario');
             $table->string('numero_identificacion')->comment('Número de identificación del usuario');
             $table->string('email')->unique()->comment('Correo electrónico del usuario');
-    
+            $table->string('ruta_foto')->nullable()->comment('foto del usuario');
             $table->timestamp('email_verified_at')->nullable()->comment('Fecha de verificación del correo');
             $table->string('password')->comment('Contraseña del usuario');
             $table->rememberToken();

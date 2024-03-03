@@ -27,6 +27,7 @@ return new class extends Migration
             $table->string('humedad_maxima')->nullable()->comment('Humedad máxima registrada en la colmena'); // Comentario sobre el campo humedad_maxima
             $table->foreignId('users_id')->references('id')->on('users')->comment('ID del usuario propietario de la colmena'); // Comentario sobre el campo users_id (clave foránea)
             $table->timestamps(); // Comentario sobre los campos de registro de fecha de creación y actualización
+            $table->softDeletes();
         });
     }
     

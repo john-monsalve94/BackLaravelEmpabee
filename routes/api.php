@@ -13,10 +13,13 @@ Route::group([
 
     Route::post('login', [AuthController::class,'login'])->withoutMiddleware('auth:api');
     Route::post('logout', [AuthController::class,'logout']);
-    Route::post('me', [AuthController::class,'me']);
+    Route::post('perfil', [AuthController::class,'perfil']);
 
 });
 
-
-Route::apiResource('colmenas',ColmenaController::class)->middleware('auth:api');
+Route::group([
+    'prefix'=>'v1'
+],function ($router){
+    Route::apiResource('colmenas',ColmenaController::class)->middleware('auth:api');
+});
 

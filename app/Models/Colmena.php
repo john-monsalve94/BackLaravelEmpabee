@@ -5,22 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\Auth;
 
 class Colmena extends Model
 {
-    use HasFactory;
+    use HasFactory,SoftDeletes;
     protected $table ="colmenas";
     protected $guarded = [];
-
-    protected static function boot()
-    {
-        parent::boot();
-
-        static::creating(function ($colmena) {
-            $colmena->users_id = Auth::id();
-        });
-    }
 
     public function user(): BelongsTo
     {

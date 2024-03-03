@@ -15,36 +15,35 @@ class User extends Authenticatable implements JWTSubject
     use HasApiTokens, HasFactory, Notifiable;
 
     protected $table = "users";
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array<int, string>
-     */
     protected $fillable = [
         'name',
         'email',
         'password',
     ];
 
-    /**
-     * The attributes that should be hidden for serialization.
-     *
-     * @var array<int, string>
-     */
     protected $hidden = [
         'password',
         'remember_token',
+        'ruta_foto'
     ];
 
-    /**
-     * The attributes that should be cast.
-     *
-     * @var array<string, string>
-     */
     protected $casts = [
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    protected $appends = [
+        'url_foto'
+    ];
+
+    public function getUrlFotoAttribute()
+    {
+        if (isset($this->attributes['ruta_foto'])) {
+            return url($this->attributes['ruta_foto']);
+        }
+
+        return null;
+    }
 
     public function getJWTIdentifier()
     {
@@ -56,7 +55,7 @@ class User extends Authenticatable implements JWTSubject
         return [];
     }
 
-    public function colmenas():HasMany
+    public function colmenas(): HasMany
     {
         return $this->hasMany(Colmena::class);
     }

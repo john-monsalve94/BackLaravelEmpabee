@@ -14,7 +14,7 @@ class ColmenaController extends Controller
      */
     public function index()
     {
-        $colmenas = Colmena::where('users_id',Auth::id())->get();
+        $colmenas = Colmena::withoutTrashed()->where('users_id',Auth::id())->get();
         return response()->json($colmenas);
     }
 
@@ -23,7 +23,9 @@ class ColmenaController extends Controller
      */
     public function store(Request $request)
     {
-        $colmena = Colmena::create($request->all());
+        $data = $request->all();
+        $data['users_id']= Auth::id();
+        $colmena = Colmena::create($data);
         return response()->json($colmena);
     }
 
