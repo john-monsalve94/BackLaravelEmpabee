@@ -17,13 +17,12 @@ return new class extends Migration
             $table->comment('Almacena información sobre notificaciones'); // Comentario sobre la tabla notificacions
             $table->id()->comment('Identificador único de la notificación'); // Comentario sobre el campo id
             $table->string('mensaje')->comment('Mensaje de la notificación'); // Comentario sobre el campo mensaje
-            $table->foreignIdFor(User::class)->comment('ID del usuario que recibe la notificacion'); // Comentario sobre el campo colmenas_id (clave foránea)
+            $table->foreignId('users_id')->references('id')->on('users')->comment('ID del usuario que recibe la notificacion'); // Comentario sobre el campo colmenas_id (clave foránea)
             $table->boolean('leido')->default(false)->comment('Indica si el usuario ya leyo la notificación');
             $table->timestamps(); // Comentario sobre los campos de registro de fecha de creación y actualización
         });
     }
     
-
     /**
      * Reverse the migrations.
      */

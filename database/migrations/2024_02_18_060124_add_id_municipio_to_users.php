@@ -27,8 +27,6 @@ return new class extends Migration
         Schema::table('users', function (Blueprint $table) {
             $table-> dropForeign(['municipio_residencia_id','municipio_nacimiento_id','tipo_identificacions_id']);
             $table-> dropColumn(['municipio_residencia_id','municipio_nacimiento_id','tipo_identificacions_id']);
-            
-
         });
     }
 };

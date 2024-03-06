@@ -13,7 +13,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('medidas', function (Blueprint $table) {
-            $table->foreignIdFor(Reporte::class,'reporte_id');
+            $table->foreignId('reporte_id')->references('id')->on('reportes');
         });
     }
 

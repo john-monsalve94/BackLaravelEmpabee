@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Notificacion extends Model
 {
     use HasFactory;
+    protected $table ="notificacions";
+    protected $guarded = [];
 }
