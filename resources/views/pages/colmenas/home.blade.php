@@ -7,8 +7,8 @@
     @vite(['resources/css/app.css','resources/css/home.css'])
     <title>Document</title>
 </head>
-<body class="bg-red-200">
-    <h1 class="text-blue-300">hola mundo</h1>
+<body>
+    <h1>hola mundo</h1>
     @vite(['resources/js/app.js'])
 </body>
 </html>

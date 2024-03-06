@@ -1,5 +1,6 @@
 <?php
 
+use App\Enums\Genero;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -17,7 +18,7 @@ return new class extends Migration
             $table->string('segundo_nombre')->nullable()->comment('El segundo nombre del usuario');
             $table->string('primer_apellido')->comment('El primer apellido del usuario');
             $table->string('segundo_apellido')->nullable()->comment('El segundo apellido del usuario');
-            $table->enum('genero',['Mujer','Hombre','Otro'])->comment('Género del usuario');
+            $table->enum('genero',Genero::getValues())->comment('Género del usuario');
             $table->string('telefono',13)->comment('Número telefónico del usuario');
             $table->string('numero_identificacion')->comment('Número de identificación del usuario');
             $table->string('email')->unique()->comment('Correo electrónico del usuario');

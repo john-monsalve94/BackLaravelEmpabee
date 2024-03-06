@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
+use Database\Factories\ControladorFactory;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -19,5 +20,6 @@ class DatabaseSeeder extends Seeder
         $this->call(TipoIdentificacionSeeder::class);
         $this->call(UserSeeder::class);
         $this->call(ColmenaSeeder::class);
+        $this->call(ControladorFactory::class);
     }
 }

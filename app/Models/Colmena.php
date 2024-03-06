@@ -7,13 +7,15 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Illuminate\Support\Facades\Auth;
 
 class Colmena extends Model
 {
     use HasFactory,SoftDeletes;
     protected $table ="colmenas";
     protected $guarded = [];
+    protected $append = [
+        'estado'
+    ];
 
     public function user(): BelongsTo
     {
