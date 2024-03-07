@@ -9,9 +9,8 @@ use Illuminate\Database\Seeder;
 
 class ColmenaSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     */
+    use WithoutModelEvents;
+    
     public function run(): void
     {  
         $users_id = User::pluck('id')->toArray();
