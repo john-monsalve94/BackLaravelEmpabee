@@ -16,11 +16,11 @@ class Controlador extends Model
 
     public function colmena(): BelongsTo
     {
-        return $this->belongsTo(Colmena::class);
+        return $this->belongsTo(Colmena::class,'colmena_id');
     }
 
     public function reportes(): HasMany
     {
-        return $this->hasMany(Reporte::class);
+        return $this->hasMany(Reporte::class,'controlador_id');
     }
 }

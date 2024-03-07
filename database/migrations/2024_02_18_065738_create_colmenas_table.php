@@ -25,7 +25,7 @@ return new class extends Migration
             $table->string('peso_maximo')->nullable()->comment('Peso máximo registrado en la colmena'); // Comentario sobre el campo peso_maximo
             $table->string('humedad_minima')->nullable()->comment('Humedad mínima registrada en la colmena'); // Comentario sobre el campo humedad_minima
             $table->string('humedad_maxima')->nullable()->comment('Humedad máxima registrada en la colmena'); // Comentario sobre el campo humedad_maxima
-            $table->foreignId('users_id')->references('id')->on('users')->comment('ID del usuario propietario de la colmena'); // Comentario sobre el campo users_id (clave foránea)
+            $table->foreignId('user_id')->references('id')->on('users')->comment('ID del usuario propietario de la colmena'); // Comentario sobre el campo user_id (clave foránea)
             $table->timestamps(); // Comentario sobre los campos de registro de fecha de creación y actualización
             $table->softDeletes();
         });

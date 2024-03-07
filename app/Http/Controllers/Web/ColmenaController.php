@@ -14,7 +14,7 @@ class ColmenaController extends Controller
      */
     public function index()
     {
-        $colmenas = Colmena::withoutTrashed()->where('users_id',Auth::id())->get();
+        $colmenas = Colmena::withoutTrashed()->where('user_id',Auth::id())->get();
         return view('pages/colmenas/index',['colmenas'=>$colmenas]);
     }
 

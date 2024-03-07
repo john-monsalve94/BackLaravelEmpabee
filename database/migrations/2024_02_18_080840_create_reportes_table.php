@@ -19,7 +19,7 @@ return new class extends Migration
             $table->enum('titulo_reporte', ReportStatus::getValues())->comment('Título del reporte'); // Comentario sobre el campo titulo_reporte
             $table->string('contenido')->comment('Contenido del reporte');
             $table->boolean('leido')->default(false)->comment('Indica si el usuario ya vio el reporte');
-            $table->foreignId('controladors_id')->references('id')->on('controladors')->comment('ID del controlador asociado al reporte'); // Comentario sobre el campo controladors_id (clave foránea)
+            $table->foreignId('controlador_id')->references('id')->on('controladors')->comment('ID del controlador asociado al reporte'); // Comentario sobre el campo controlador_id (clave foránea)
             $table->timestamps(); // Comentario sobre los campos de registro de fecha de creación y actualización
         });
     }

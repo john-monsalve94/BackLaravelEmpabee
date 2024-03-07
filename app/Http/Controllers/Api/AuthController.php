@@ -23,7 +23,7 @@ class AuthController extends Controller
     }
 
     public function perfil(){
-        $user = JWTAuth::parseToken()->authenticate();
+        $user = User::find(Auth::id());
         return response()->json($user);
     }
 

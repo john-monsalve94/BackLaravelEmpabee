@@ -15,39 +15,42 @@ class Colmena extends Model
     use HasFactory, SoftDeletes;
     protected $table = "colmenas";
     protected $guarded = [];
-    protected $append = [
+    protected $appends = [
         'estado'
     ];
 
     public function getEstadoAttribute(): string
     {
         $last_report = $this
-            ->controladores()
-            ->whereHas('reportes', function ($query) {
-                $query
-                    ->where('titulo_reporte', ReportStatus::ALERTA)
-                    ->where('leido', false);
+            ->whereHas('controladores', function ($query) {
+                $query->whereHas('reportes', function ($query) {
+                    $query
+                        ->where('titulo_reporte', ReportStatus::ALERTA)
+                        ->where('leido', false);
+                });
             })->exists();
         if ($last_report) {
             return ReportStatus::ALERTA;
         }
         $last_report = $this
-        ->controladores()
-        ->whereHas('reportes', function ($query) {
-            $query
-                ->where('titulo_reporte', ReportStatus::ADVERTENCIA)
-                ->where('leido', false);
-        })->exists();
+            ->whereHas('controladores', function ($query) {
+                $query->whereHas('reportes', function ($query) {
+                    $query
+                        ->where('titulo_reporte', ReportStatus::ADVERTENCIA)
+                        ->where('leido', false);
+                });
+            })->exists();
         if ($last_report) {
             return ReportStatus::ADVERTENCIA;
         }
         $last_report = $this
-        ->controladores()
-        ->whereHas('reportes', function ($query) {
-            $query
-                ->where('titulo_reporte', ReportStatus::INFO)
-                ->where('leido', false);
-        })->exists();
+            ->whereHas('controladores', function ($query) {
+                $query->whereHas('reportes', function ($query) {
+                    $query
+                        ->where('titulo_reporte', ReportStatus::INFO)
+                        ->where('leido', false);
+                });
+            })->exists();
         if ($last_report) {
             return ReportStatus::INFO;
         }
@@ -59,18 +62,18 @@ class Colmena extends Model
         parent::boot();
 
         static::creating(function ($colmena) {
-            $colmena->users_id = Auth::id();
+            $colmena->user_id = Auth::id();
         });
     }
 
     public function user(): BelongsTo
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'user_id');
     }
 
     public function controladores(): HasMany
     {
-        return $this->hasMany(Controlador::class);
+        return $this->hasMany(Controlador::class, 'colmena_id');
     }
 
     public function siembras(): HasMany

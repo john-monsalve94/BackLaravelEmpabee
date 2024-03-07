@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id()->comment('Identificador único del sensor'); // Comentario sobre el campo id
             $table->string('token')->comment('Token del sensor'); // Comentario sobre el campo token
             $table->foreignId('tipo_sensors_id')->references('id')->on('tipo_sensors')->comment('ID del tipo de sensor asociado al sensor'); // Comentario sobre el campo tipo_sensors_id (clave foránea)
-            $table->foreignId('controladors_id')->references('id')->on('controladors')->comment('ID del controlador asociado al sensor'); // Comentario sobre el campo controladors_id (clave foránea)
+            $table->foreignId('controlador_id')->references('id')->on('controladors')->comment('ID del controlador asociado al sensor'); // Comentario sobre el campo controlador_id (clave foránea)
             $table->timestamps(); // Comentario sobre los campos de registro de fecha de creación y actualización
         });
     }

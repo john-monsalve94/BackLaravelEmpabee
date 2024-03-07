@@ -9,12 +9,22 @@ use Illuminate\Support\Facades\Auth;
 
 class ColmenaController extends Controller
 {
+    private $relations;
+
+    public function __construct()
+    {
+        $this->relations = [];
+    }
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $colmenas = Colmena::withoutTrashed()->where('users_id',Auth::id())->get();
+        $relations = $request->query('relations');
+        $colmenas = Colmena::with($relations??$this->relations)
+            ->withoutTrashed()
+            ->where('user_id', Auth::id())
+            ->get();
         return response()->json($colmenas);
     }
 
@@ -24,7 +34,6 @@ class ColmenaController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-        $data['users_id']= Auth::id();
         $colmena = Colmena::create($data);
         return response()->json($colmena);
     }
@@ -52,6 +61,6 @@ class ColmenaController extends Controller
     public function destroy(Colmena $colmena)
     {
         $colmena->delete();
-        return response()->json(['message'=>'Colmena eliminada correctamente']);
+        return response()->json(['message' => 'Colmena eliminada correctamente']);
     }
 }
