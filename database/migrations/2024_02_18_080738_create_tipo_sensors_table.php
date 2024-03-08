@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id()->comment('Identificador único del tipo de sensor'); // Comentario sobre el campo id
             $table->string('nombre')->comment('Nombre del tipo de sensor'); // Comentario sobre el campo nombre
             $table->string('descripcion')->nullable()->comment('Descripción del tipo de sensor (opcional)'); // Comentario sobre el campo descripcion
+            $table->string('simbolo_medida');
             $table->timestamps(); // Comentario sobre los campos de registro de fecha de creación y actualización
         });
     }

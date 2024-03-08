@@ -22,39 +22,33 @@ class Colmena extends Model
     public function getEstadoAttribute(): string
     {
         $last_report = $this
-            ->whereHas('controladores', function ($query) {
-                $query->whereHas('reportes', function ($query) {
-                    $query
-                        ->where('titulo_reporte', ReportStatus::ALERTA)
-                        ->where('leido', false);
-                });
+            ->whereHas('controladores.reportes', function ($query) {
+                $query
+                    ->where('titulo_reporte', ReportStatus::ALERTA)
+                    ->where('leido', false);
             })->exists();
         if ($last_report) {
             return ReportStatus::ALERTA;
         }
         $last_report = $this
-            ->whereHas('controladores', function ($query) {
-                $query->whereHas('reportes', function ($query) {
-                    $query
-                        ->where('titulo_reporte', ReportStatus::ADVERTENCIA)
-                        ->where('leido', false);
-                });
+            ->whereHas('controladores.reportes', function ($query) {
+                $query
+                    ->where('titulo_reporte', ReportStatus::ADVERTENCIA)
+                    ->where('leido', false);
             })->exists();
         if ($last_report) {
             return ReportStatus::ADVERTENCIA;
         }
         $last_report = $this
-            ->whereHas('controladores', function ($query) {
-                $query->whereHas('reportes', function ($query) {
-                    $query
-                        ->where('titulo_reporte', ReportStatus::INFO)
-                        ->where('leido', false);
-                });
+            ->whereHas('controladores.reportes', function ($query) {
+                $query
+                    ->where('titulo_reporte', ReportStatus::INFO)
+                    ->where('leido', false);
             })->exists();
         if ($last_report) {
             return ReportStatus::INFO;
         }
-        return 'NORMAL';
+        return ReportStatus::NORMAL;
     }
 
     protected static function boot()
@@ -78,6 +72,6 @@ class Colmena extends Model
 
     public function siembras(): HasMany
     {
-        return $this->hasMany(Siembra::class);
+        return $this->hasMany(Siembra::class,'colmena_id');
     }
 }

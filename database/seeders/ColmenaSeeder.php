@@ -15,7 +15,7 @@ class ColmenaSeeder extends Seeder
     {  
         $users_id = User::pluck('id')->toArray();
         foreach ($users_id as $id) {
-            Colmena::factory(10)->create(['user_id'=>$id]);
+            Colmena::factory(5)->create(['user_id'=>$id]);
         }
     }
 }

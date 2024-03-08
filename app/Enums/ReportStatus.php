@@ -9,5 +9,6 @@ class ReportStatus extends Enum {
     const ALERTA = 'Alerta';
     const ADVERTENCIA = 'Advertencia';
     const INFO = 'Info';
+    const NORMAL = 'Normal';
 
 }

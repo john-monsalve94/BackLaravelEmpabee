@@ -16,8 +16,8 @@ return new class extends Migration
             // Definición de la tabla reportes
             $table->comment('Almacena los reportes'); // Comentario sobre la tabla reportes
             $table->id()->comment('Identificador único del reporte'); // Comentario sobre el campo id
-            $table->enum('titulo_reporte', ReportStatus::getValues())->comment('Título del reporte'); // Comentario sobre el campo titulo_reporte
-            $table->string('contenido')->comment('Contenido del reporte');
+            $table->enum('titulo_reporte', ReportStatus::getValues())->default(ReportStatus::NORMAL)->comment('Título del reporte'); // Comentario sobre el campo titulo_reporte
+            $table->string('contenido')->default('Nada que reportar')->comment('Contenido del reporte');
             $table->boolean('leido')->default(false)->comment('Indica si el usuario ya vio el reporte');
             $table->foreignId('controlador_id')->references('id')->on('controladors')->comment('ID del controlador asociado al reporte'); // Comentario sobre el campo controlador_id (clave foránea)
             $table->timestamps(); // Comentario sobre los campos de registro de fecha de creación y actualización

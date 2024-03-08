@@ -16,5 +16,9 @@ class DatabaseSeeder extends Seeder
         $this->call(UserSeeder::class);
         $this->call(ColmenaSeeder::class);
         $this->call(ControladorSeeder::class);
+        $this->call(TipoSensorSeeder::class);
+        $this->call(SensorSeeder::class);
+        $this->call(ReporteSeeder::class);
+        $this->call(MedidaSeeder::class);
     }
 }
