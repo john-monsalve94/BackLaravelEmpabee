@@ -14,6 +14,6 @@ class Pais extends Model
 
     public function departamentos():HasMany
     {
-        return $this->hasMany(Departamento::class);
+        return $this->hasMany(Departamento::class,'pais_id');
     }
 }

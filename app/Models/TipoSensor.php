@@ -14,6 +14,6 @@ class TipoSensor extends Model
 
     public function sensores():HasMany
     {
-        return $this->hasMany(Sensor::class);
+        return $this->hasMany(Sensor::class,'tipo_sensor_id');
     }
 }

@@ -15,16 +15,16 @@ class Sensor extends Model
 
     public function controlador():BelongsTo
     {
-        return $this->belongsTo(Controlador::class);
+        return $this->belongsTo(Controlador::class,'controlador_id');
     }
 
     public function tipo_sensor():BelongsTo
     {
-        return $this->belongsTo(TipoSensor::class);
+        return $this->belongsTo(TipoSensor::class,'tipo_sensor_id');
     }
 
     public function medidas():HasMany
     {
-        return $this->hasMany(Medida::class);
+        return $this->hasMany(Medida::class,'sensor_id');
     }
 }

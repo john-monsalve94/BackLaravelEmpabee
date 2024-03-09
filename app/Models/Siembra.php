@@ -15,11 +15,11 @@ class Siembra extends Model
 
     public function colmena():BelongsTo
     {
-        return $this->belongsTo(Colmena::class);
+        return $this->belongsTo(Colmena::class,'colmena_id');
     }
 
     public function producciones():HasMany
     {
-        return $this->hasMany(Produccion::class);
+        return $this->hasMany(Produccion::class,'siembra_id');
     }
 }

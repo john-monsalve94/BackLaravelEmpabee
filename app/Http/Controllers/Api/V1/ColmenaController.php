@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api\V1;
 
 use App\Http\Controllers\Controller;
 use App\Models\Colmena;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -24,7 +25,7 @@ class ColmenaController extends Controller
         $colmenas = Colmena::with($relations??$this->relations)
             ->withoutTrashed()
             ->where('user_id', Auth::id())
-            ->get();
+            ->paginate();
         return response()->json($colmenas);
     }
 
@@ -33,8 +34,12 @@ class ColmenaController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->all();
-        $colmena = Colmena::create($data);
+        $start_date = Carbon::now();
+        $count_colmenas = Colmena::where('user_id',Auth::id())->count();
+        $colmena = Colmena::create([
+            'nombre'=>'Colmena'.($count_colmenas+1),
+            'fecha_inicio'=>$start_date
+        ]);
         return response()->json($colmena);
     }
 

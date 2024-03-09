@@ -14,11 +14,11 @@ class Medida extends Model
 
     public function reporte():BelongsTo
     {
-        return $this->belongsTo(Reporte::class);
+        return $this->belongsTo(Reporte::class,'reporte_id');
     }
 
     public function sensor():BelongsTo
     {
-        return $this->belongsTo(Sensor::class);
+        return $this->belongsTo(Sensor::class,'sensor_id');
     }
 }

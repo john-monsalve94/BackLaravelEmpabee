@@ -58,6 +58,10 @@ class Colmena extends Model
         static::creating(function ($colmena) {
             $colmena->user_id = Auth::id();
         });
+
+        static::updating(function ($colmena) {
+            $colmena->user_id = Auth::id();
+        });
     }
 
     public function user(): BelongsTo

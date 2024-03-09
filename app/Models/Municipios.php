@@ -15,7 +15,7 @@ class Municipios extends Model
 
     public function departamento():BelongsTo
     {
-        return $this->belongsTo(Departamento::class);
+        return $this->belongsTo(Departamento::class,'departamento_id');
     }
 
     public function users_born():HasMany

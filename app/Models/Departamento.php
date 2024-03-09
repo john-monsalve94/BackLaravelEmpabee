@@ -15,11 +15,11 @@ class Departamento extends Model
 
     public function pais():BelongsTo
     {
-        return $this->belongsTo(Pais::class);
+        return $this->belongsTo(Pais::class,'pais_id');
     }
 
     public function municipios():HasMany
     {
-        return $this->hasMany(Municipios::class);
+        return $this->hasMany(Municipios::class,'departamento_id');
     }
 }

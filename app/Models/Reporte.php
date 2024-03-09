@@ -31,7 +31,7 @@ class Reporte extends Model
 
     public function controlador():BelongsTo
     {
-        return $this->belongsTo(Controlador::class);
+        return $this->belongsTo(Controlador::class,'controlador_id');
     }
 
     public function medidas():HasMany

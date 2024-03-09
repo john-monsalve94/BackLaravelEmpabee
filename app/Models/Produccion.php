@@ -14,6 +14,6 @@ class Produccion extends Model
 
     public function siembra():BelongsTo
     {
-        return $this->belongsTo(Siembra::class);
+        return $this->belongsTo(Siembra::class,'siembra_id');
     }
 }
