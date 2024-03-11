@@ -3,11 +3,13 @@
 namespace App\Http\Controllers\Api\V1;
 
 use App\Enums\ReportStatus;
+use App\Events\NotificacionEvent;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Reporte\ReporteByColmenaRequest;
 use App\Http\Requests\Reporte\StoreReporteRequest;
 use App\Models\Controlador;
 use App\Models\Medida;
+use App\Models\Notificacion;
 use App\Models\Reporte;
 use Illuminate\Http\Request;
 
@@ -66,9 +68,21 @@ class ReporteController extends Controller
             }
         }
         $estado_reporte = $this->report_status($reporte);
-        
+
         $reporte->update($estado_reporte);
         $reporte->load('medidas');
+
+        $user_id = $reporte->controlador->colmena->user->id;
+
+        $notificacion = Notificacion::create(
+            [
+                'user_id' => $user_id,
+                'mensaje' => $reporte->contenido
+            ]
+        );
+
+        broadcast(new NotificacionEvent($notificacion));
+
         return response()->json($reporte);
     }
 
@@ -100,6 +114,7 @@ class ReporteController extends Controller
     {
         $colmena = $reporte->controlador->colmena;
         $titulo_reporte = ReportStatus::INFO;
+        $contenido_reporte = 'Todo normal';
 
         if ($colmena->temperatura_minima !== null && $colmena->temperatura_maxima !== null) {
             $dif_temperatura = $colmena->temperatura_maxima - $colmena->temperatura_minima;
@@ -121,6 +136,8 @@ class ReporteController extends Controller
                 $titulo_reporte = ReportStatus::ALERTA;
             } elseif ($reporte->promedio_peso < 0.5 * $colmena->peso_minimo) {
                 $titulo_reporte = ReportStatus::ADVERTENCIA;
+            } elseif ($reporte->promedio_peso > $colmena->peso_maximo) {
+                $contenido_reporte = 'Colmena lista para recolectar';
             }
         }
 
@@ -139,7 +156,20 @@ class ReporteController extends Controller
             }
         }
 
+        switch ($titulo_reporte) {
+            case ReportStatus::ALERTA:
+                $contenido_reporte = 'Valores en estado critico';
+                break;
+            case ReportStatus::ADVERTENCIA:
+                $contenido_reporte = 'Valores fuera de lo normal';
+                break;
+
+            default:
+                break;
+        }
+
         $reporte->titulo_reporte = $titulo_reporte;
+        $reporte->contenido = $contenido_reporte;
 
         $estado_reporte = $reporte->toArray();
         unset(

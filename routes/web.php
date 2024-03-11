@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Web\ColmenaController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,6 +19,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('pages/colmenas/home');
 });
+
+Route::get('/notificacion', function () {
+    return view('pages/pruebas/notificacion',['user_id'=>Auth::id()]);
+})->middleware(['auth']);
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
