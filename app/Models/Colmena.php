@@ -22,32 +22,41 @@ class Colmena extends Model
     public function getEstadoAttribute(): string
     {
         $last_report = $this
-            ->whereHas('controladores.reportes', function ($query) {
+            ->controladores()
+            ->whereHas('reportes', function ($query) {
                 $query
                     ->where('titulo_reporte', ReportStatus::ALERTA)
                     ->where('leido', false);
             })->exists();
+
         if ($last_report) {
             return ReportStatus::ALERTA;
         }
+
         $last_report = $this
-            ->whereHas('controladores.reportes', function ($query) {
+            ->controladores()
+            ->whereHas('reportes', function ($query) {
                 $query
                     ->where('titulo_reporte', ReportStatus::ADVERTENCIA)
                     ->where('leido', false);
             })->exists();
+
         if ($last_report) {
             return ReportStatus::ADVERTENCIA;
         }
+
         $last_report = $this
-            ->whereHas('controladores.reportes', function ($query) {
+            ->controladores()
+            ->whereHas('reportes', function ($query) {
                 $query
                     ->where('titulo_reporte', ReportStatus::INFO)
                     ->where('leido', false);
             })->exists();
+
         if ($last_report) {
             return ReportStatus::INFO;
         }
+
         return ReportStatus::NORMAL;
     }
 

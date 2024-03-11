@@ -13,7 +13,7 @@ class ControladorSeeder extends Seeder
     {
         $colmenas_id = Colmena::pluck('id')->toArray();
         foreach ($colmenas_id as $id) {
-            Controlador::factory(5)->create(['colmena_id'=>$id]);
+            Controlador::factory(2)->create(['colmena_id'=>$id]);
         }
     }
 }

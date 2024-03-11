@@ -16,23 +16,30 @@ class ColmenaController extends Controller
     {
         $this->relations = [];
     }
-    /**
-     * Display a listing of the resource.
-     */
+
     public function index(Request $request)
     {
-        $relations = $request->query('relations');
-        $colmenas = Colmena::with($relations??$this->relations)
+        $relations = $request->query('relations',$this->relations);
+        $page = $request->query('page',1);
+        $limit = $request->query('limit',2);
+        $colmenas = Colmena::with($relations)
             ->withoutTrashed()
             ->where('user_id', Auth::id())
-            ->paginate();
-        return response()->json($colmenas);
+            ->latest()
+            ->paginate($limit,['*'],'page',$page);
+
+            $data = $colmenas->items();
+            $currentPage = $colmenas->currentPage();
+            $totalPages = $colmenas->lastPage();
+        
+            return response()->json([
+                'data' => $data,
+                'current_page' => $currentPage,
+                'total_pages' => $totalPages,
+            ]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
+    public function store()
     {
         $start_date = Carbon::now();
         $count_colmenas = Colmena::where('user_id',Auth::id())->count();
@@ -43,26 +50,17 @@ class ColmenaController extends Controller
         return response()->json($colmena);
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(Colmena $colmena)
     {
         return response()->json($colmena);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, Colmena $colmena)
     {
         $colmena->update($request->all());
         return response()->json($colmena);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(Colmena $colmena)
     {
         $colmena->delete();

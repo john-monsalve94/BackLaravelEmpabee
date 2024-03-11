@@ -15,17 +15,14 @@ class SensorSeeder extends Seeder
      */
     public function run(): void
     {
-        $controladores_id = Controlador::pluck('id')->toArray();
+        $controladores = Controlador::all();
         $tipo_sensores_id = TipoSensor::pluck('id')->toArray();
-        foreach ($controladores_id as $controlador_id) {
+        foreach ($controladores as $controlador) {
             foreach ($tipo_sensores_id as $tipo_sensor_id) {
-                Sensor::factory()
-                    ->create(
-                        [
-                            'tipo_sensor_id' => $tipo_sensor_id,
-                            'controlador_id' => $controlador_id
-                        ]
-                    );
+                Sensor::factory()->create([
+                    'tipo_sensor_id' => $tipo_sensor_id,
+                    'controlador_id' => $controlador->uuid
+                ]);
             }
         }
     }

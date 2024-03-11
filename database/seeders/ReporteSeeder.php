@@ -14,9 +14,9 @@ class ReporteSeeder extends Seeder
      */
     public function run(): void
     {
-        $controladores_id = Controlador::pluck('id')->toArray();
-        foreach ($controladores_id as $id) {
-            Reporte::factory(5)->create(['controlador_id'=>$id]);
+        $controladores_id = Controlador::pluck('uuid')->toArray();
+        foreach ($controladores_id as $uuid) {
+            Reporte::factory(5)->create(['controlador_id'=>$uuid]);
         }
     }
 }

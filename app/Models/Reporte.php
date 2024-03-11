@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Enums\ReportStatus;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -12,7 +13,11 @@ class Reporte extends Model
     use HasFactory;
     protected $table ="reportes";
     protected $guarded = [];
-    protected $appends = ['promedio_temperatura', 'promedio_peso', 'promedio_humedad'];
+    protected $appends = [
+        'promedio_temperatura', 
+        'promedio_peso', 
+        'promedio_humedad'
+    ];
 
     public function getPromedioTemperaturaAttribute()
     {
@@ -31,7 +36,7 @@ class Reporte extends Model
 
     public function controlador():BelongsTo
     {
-        return $this->belongsTo(Controlador::class,'controlador_id');
+        return $this->belongsTo(Controlador::class,'controlador_id','uuid');
     }
 
     public function medidas():HasMany
@@ -39,13 +44,10 @@ class Reporte extends Model
         return $this->hasMany(Medida::class,'reporte_id');
     }
 
-    protected function calcularPromedio($tipoMedida)
+    protected function calcularPromedio(string $tipoMedida)
     {
-        return Medida::whereHas('sensor', function ($query) use ($tipoMedida) {
+        return $this->medidas()->whereHas('sensor', function ($query) use ($tipoMedida) {
                 $query->where('tipo_sensor_id', $tipoMedida);
-            })
-            ->whereHas('reporte', function ($query) {
-                $query->where('controlador_id', $this->controlador_id);
             })
             ->avg('valor');
     }
