@@ -1,0 +1,9 @@
+.wrapper {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    background: url(/public/images/ovalo1.png);
+    background-size: contain;
+    background-position: center 0;
+}

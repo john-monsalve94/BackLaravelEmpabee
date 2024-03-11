@@ -1,3 +1,80 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+.wrapper1 {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    background: url(/public/images/ovalo1.png) no-repeat;
+    background-size: contain;
+    background-position: left;
+    position: relative;
+
+}
+
+.wrapper2 {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    background: url(/public/images/ovalo2.png) no-repeat;
+    background-size: contain;
+    background-position: right;
+    position: relative;
+    bottom: 60px;
+    /* right: 50px; */
+}
+
+.text1 {
+    display: flex;
+    text-align: left;
+    width: 70%;
+    padding-left: 90px;
+
+}
+
+.abeja1 {
+    width: 50vw;
+    height: 50vh;
+    display: flex;
+    align-items: center;
+    background: url(/public/images/abeja.png) no-repeat;
+    background-size: contain;
+    position: relative;
+    top: 200px;
+    left: 100px;
+    /* background-position: left; */
+}
+
+.abeja2 {
+    width: 50vw;
+    height: 50vh;
+    display: flex;
+    /* padding-inline-start: 20%; */
+    align-items: center;
+    background: url(/public/images/abeja.png) no-repeat;
+    background-size: contain;
+    position: relative;
+    bottom: 50px;
+    right: 50px;
+    /* background-position: left; */
+}
+
+.circulo {
+    width: 10vw;
+    height: 10vh;
+    display: flex;
+    /* padding-inline-start: 20%; */
+    align-items: center;
+    background: url(/public/images/circulo.png) no-repeat;
+    background-size: contain;
+    position: relative;
+    top: 280px;
+    right: 180px;
+
+}
+
+@layer components {}
