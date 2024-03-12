@@ -35,4 +35,11 @@ class NotificacionEvent implements ShouldBroadcast
             new PrivateChannel('notificacion.'.$this->notificacion->user_id),
         ];
     }
+
+    public function broadcastWith(): array
+{
+    return [
+        'notificacion' => $this->notificacion,
+    ];
+}
 }
