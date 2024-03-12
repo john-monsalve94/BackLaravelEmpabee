@@ -13,7 +13,7 @@
                     <img src="/images/marco.svg" alt="">
                 </a> --}}
                 {{-- Aquí va la imagen con link --}}
-                <div class="flex flex-grow pl-20 items-center">
+                <div class="logonav flex flex-grow pl-20 items-center">
                     <a href="#">
                         <img src="/images/logo.svg">
                     </a>
@@ -29,9 +29,9 @@
                     </div>
                     <div class="flex flex-col lg:flex-row text-center">
                         <a href="#"
-                            class="text-black bg-amber-100 py-4 px-5 rounded-lg hover:bg-amber-300 hover:text-white transition duration-500 case-in-out lg:mr-5 mb-8 lg:mb-0">Registrarse</a>
+                            class="text-black bg-amber-200 py-4 px-5 rounded-lg hover:bg-amber-300 hover:text-white transition duration-200 case-in-out lg:mr-5 mb-8 lg:mb-0">Registrarse</a>
                         <a href="#"
-                            class="text-black bg-gradient-to-b from-amber-400 to-amber-100 py-4 px-5 rounded-lg hover:bg-amber-300 hover:text-white transition duration-500 case-in-out mb-8 lg:mb-0">Iniciar
+                            class="text-black bg-gradient-to-b from-amber-600 to-amber-100 py-4 px-5 rounded-lg hover:bg-amber-300 hover:text-white transition duration-200 case-in-out mb-8 lg:mb-0">Iniciar
                             Sesión</a>
                     </div>
                 </div>
@@ -40,21 +40,31 @@
     </header>
 @endsection
 
-@section('contenido')
+@section('hero')
     <section class="wrapper1">
         <div class="wrapper2">
-            <h1 class="text1 text-3xl">
+            <h1 class="text1 text-5xl">
                 <strong>En cada colmena, una historia.<br>Monitoreamos, cosechamos<br> y cuidamos la vida.</strong>
             </h1>
             <div class="abeja1"></div>
             <div class="abeja2"></div>
             <div class="circulo"></div>
         </div>
+    </section>
+@endsection
 
 
+@section('beneficio')
+    <section class="ben bg-blue-400">
+        <div>
+            <h1 class="titulo">Beneficios de Nuestra Plataforma</h1>
+            <h2 class="subt">Potencia tu producción de miel con nuestro monitoreo en tiempo real. Maximiza eficiencia, protege abejas y garantiza sostenibilidad.</h2>
+        </div>
 
     </section>
 @endsection
+
+
 
 @section('footer')
     {{-- w-max h-fit --}}
@@ -62,7 +72,7 @@
         <div class="p-10  bg-gradient-to-b from-amber-400 to-amber-100 text-gray-200">
             <div class="max-w-7xl mx-auto">
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap2">
-                    <div class="flex flex-grow items-center bg-center ">
+                    <div class="logofut flex flex-grow items-center bg-center">
                         <a href="#">
                             <img src="/images/logo.svg" class="h-32">
                         </a>

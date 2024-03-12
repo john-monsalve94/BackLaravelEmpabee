@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-
+/* Todo el hero */
 .wrapper1 {
     width: 100vw;
     height: 100vh;
@@ -31,9 +31,10 @@
 .text1 {
     display: flex;
     text-align: left;
-    width: 70%;
-    padding-left: 90px;
-
+    width: 65%;
+    /* padding-left: 50px; */
+    position: relative;
+    left: 120px;
 }
 
 .abeja1 {
@@ -44,9 +45,8 @@
     background: url(/public/images/abeja.png) no-repeat;
     background-size: contain;
     position: relative;
-    top: 200px;
+    top: 300px;
     left: 100px;
-    /* background-position: left; */
 }
 
 .abeja2 {
@@ -59,7 +59,7 @@
     background-size: contain;
     position: relative;
     bottom: 50px;
-    right: 50px;
+    right: 130px;
     /* background-position: left; */
 }
 
@@ -72,9 +72,72 @@
     background: url(/public/images/circulo.png) no-repeat;
     background-size: contain;
     position: relative;
-    top: 280px;
-    right: 180px;
-
+    top: 420px;
+    right: 320px;
 }
+
+.logofut {
+    position: relative;
+    right: 160px;
+}
+
+/* Todo el hero */
+
+
+/** Todo Beneficios */
+
+.ben {
+    display: inline-flex;
+    padding: 70px 164px;
+    justify-content: center;
+    align-items: center;
+    background: url(/public/images/);
+}
+
+.titulo {
+    
+    align-self: stretch;
+    color: var(--Neutral-900, #111827);
+    text-align: center;
+    font-feature-settings: 'liga' off;
+    /* Display lg / Bold */
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 60px; /* 125% */
+    letter-spacing: -1.2px;
+   
+   
+   
+   
+    /* display: flex;
+    width: 800px;
+    height: 132px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    flex-shrink: 0; */
+}
+
+.subt {
+    align-self: stretch;
+
+    color: var(--Neutral-900, #111827);
+    text-align: center;
+    font-feature-settings: 'liga' off;
+
+    /* Body lg / Regular */
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 28px;
+    /* 155.556% */
+}
+
+
+/** Todo Beneficios */
+
 
 @layer components {}

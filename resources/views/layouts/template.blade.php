@@ -30,7 +30,8 @@
     </header>
 
     <main>
-        @yield('contenido')
+        @yield('hero')
+        @yield('beneficio')
     </main>
 
     <footer>
