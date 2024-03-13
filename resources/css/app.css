@@ -95,7 +95,7 @@
 }
 
 .titulo {
-    
+
     align-self: stretch;
     color: var(--Neutral-900, #111827);
     text-align: center;
@@ -105,12 +105,13 @@
     font-size: 48px;
     font-style: normal;
     font-weight: 700;
-    line-height: 60px; /* 125% */
+    line-height: 60px;
+    /* 125% */
     letter-spacing: -1.2px;
-   
-   
-   
-   
+
+
+
+
     /* display: flex;
     width: 800px;
     height: 132px;
@@ -139,5 +140,62 @@
 
 /** Todo Beneficios */
 
+
+/* ? Todo Nosotros */
+
+.nosotros {
+
+    background: #FFF;
+    display: flex;
+    width: 1440px;
+    height: 802px;
+    padding: 80px 111.078px 80px 80px;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.titulo{
+    font-size: 50px ;
+}
+/* .nos1 {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    display: inline-flex;
+}
+
+.nos2 {
+    width: 248.26px;
+    background: white;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 15.28px;
+    display: inline-flex;
+}
+
+.nos3 {
+    flex: 1 1 0;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    display: inline-flex;
+}
+
+.nos4 {
+    align-self: stretch;
+    color: #111827;
+    font-size: 36px;
+    font-family: Inter;
+    font-weight: 700;
+    line-height: 45px;
+    word-wrap: break-word;
+} */
+
+
+
+/* ? Todo Nosotros */
 
 @layer components {}

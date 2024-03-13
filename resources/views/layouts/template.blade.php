@@ -32,6 +32,7 @@
     <main>
         @yield('hero')
         @yield('beneficio')
+        @yield('nosotros')
     </main>
 
     <footer>
