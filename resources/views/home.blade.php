@@ -55,7 +55,7 @@
 
 
 @section('beneficio')
-    <section class="ben bg-blue-400">
+    <section class="ben bg-blue-400 w-full">
         <div>
             <h1 class="tituloben">Beneficios de Nuestra Plataforma</h1>
             <h2 class="subt">Potencia tu producción de miel con nuestro monitoreo en tiempo real. Maximiza eficiencia,
@@ -75,121 +75,60 @@
                 <div class="btnnos pt-">Descubre más</div>
             </a>
         </div>
-        <div class="cuadro bg-slate-600">
+        <div class="cuadro">
             <div class="intcuadro1">
                 <img class="imgbee" src="/images/bee_icon.svg">
                 <h2 class="tit1cuadro">Pasión por las <br> Abejas</h2>
                 <p class="ptit1">Amamos y respetamos a nuestras abejas.</p>
             </div>
-            <div class="intcuadro2 bg-green-600">
+            <div class="intcuadro2">
                 <img class="imgbee" src="/images/rating.svg">
                 <h2 class="tit2cuadro">Monitoreo Eficiente</h2>
                 <p class="ptit2">Mejoramos el monitoreo de la miel con soluciones prácticas..</p>
             </div>
-            <div class="intcuadro3 bg-red-400">
-                <img class="imgbee" src="/images/rating.svg">
+            <div class="intcuadro3">
+                <img class="imgbee" src="/images/cerebro.svg">
                 <h2 class="tit3cuadro">Tecnología Eficaz</h2>
                 <p class="ptit3">Herramientas personalizadas para monitoreo y gestión apícola</p>
+            </div>
+            <div class="intcuadro4 ">
+                <img class="imgbee" src="/images/hands.svg">
+                <h2 class="tit4cuadro">Tu Compañero de Confianza</h2>
+                <p class="ptit4">Colaboramos contigo para fortalecer tu producción y comunidad.</p>
             </div>
         </div>
 
     </section>
+@endsection
 
-
-
-    {{-- <section class="nosotros">
-    <div class="nos1"
-        style="width: 100%; height: 100%; position: relative; flex-direction: column; justify-content: flex-start; align-items: flex-start; display: inline-flex">
-        <div class="nos2"
-            style="width: 248.26px; background: white; justify-content: flex-start; align-items: center; gap: 15.28px; display: inline-flex">
-            <div class="nos3"
-                style="flex: 1 1 0; flex-direction: column; justify-content: flex-start; align-items: flex-start; display: inline-flex">
-                <div class="nos4"
-                    style="align-self: stretch; color: #111827; font-size: 36px; font-family: Inter; font-weight: 700; line-height: 45px; word-wrap: break-word">
-                    Tecnología Eficaz</div>
-            </div>
+@section('compromisos')
+    <section class="compromisos">
+        <div>
+            <img class="imgcom" src="/images/comillas.svg">
+            <h3 class="titulocomp">¡Actúa Ahora por un Futuro Mejor!</h3>
+            <p class="ptitcomp">"Tú puedes ser parte de la transformación hacia una apicultura más sostenible al unirte a
+                nuestra causa".</p>
         </div>
-        <div
-            style="width: 248.26px; background: white; justify-content: flex-start; align-items: center; gap: 15.28px; display: inline-flex">
-            <div
-                style="flex: 1 1 0; flex-direction: column; justify-content: flex-start; align-items: flex-start; display: inline-flex">
-                <div
-                    style="align-self: stretch; color: #111827; font-size: 36px; font-family: Inter; font-weight: 700; line-height: 45px; word-wrap: break-word">
-                    Pasión por las Abejas</div>
-            </div>
+        <div class="caja1">
+            <img class="imgcom1" src="/images/minicomilla.svg">
+            <h3 class="titcom1">Alianza Apícola</h3>
+            <p class="ptitcom1">Trabajemos juntos para encontrar soluciones innovadoras y crear un entorno sostenible para
+                nuestras abejas.
+            </p>
         </div>
-        <div style="width: 57.29px; height: 57.29px; position: relative">
-            <div
-                style="width: 42.24px; height: 29.93px; left: 7.53px; top: 15.88px; position: absolute; background: #F7A733">
-            </div>
-            <div
-                style="width: 13.92px; height: 9.74px; left: 21.69px; top: 10.09px; position: absolute; background: #F7A733">
-            </div>
-            <div
-                style="width: 6.64px; height: 10.80px; left: 25.32px; top: 19.84px; position: absolute; background: #F7A733">
-            </div>
-            <div
-                style="width: 12.27px; height: 5.37px; left: 22.51px; top: 30.64px; position: absolute; background: #F7A733">
-            </div>
-            <div
-                style="width: 18.11px; height: 5.37px; left: 19.59px; top: 36.01px; position: absolute; background: #F7A733">
-            </div>
-            <div
-                style="width: 18.11px; height: 5.37px; left: 19.59px; top: 41.38px; position: absolute; background: #F7A733">
-            </div>
-            <div
-                style="width: 14.97px; height: 4.06px; left: 21.16px; top: 46.75px; position: absolute; background: #F7A733">
-            </div>
-            <div style="width: 42.24px; height: 44.34px; left: 7.53px; top: 6.47px; position: absolute">
-                <div
-                    style="width: 18.11px; height: 9.43px; left: 12.06px; top: 34.91px; position: absolute; border: 1.49px white solid">
-                </div>
-                <div
-                    style="width: 12.27px; height: 0px; left: 14.99px; top: 29.54px; position: absolute; border: 1.49px white solid">
-                </div>
-                <div
-                    style="width: 6.64px; height: 0px; left: 17.80px; top: 24.17px; position: absolute; border: 1.49px white solid">
-                </div>
-                <div
-                    style="width: 21.12px; height: 29.93px; left: 0px; top: 9.41px; position: absolute; border: 1.49px white solid">
-                </div>
-                <div
-                    style="width: 21.12px; height: 29.93px; left: 21.12px; top: 9.41px; position: absolute; border: 1.49px white solid">
-                </div>
-                <div
-                    style="width: 13.92px; height: 7.57px; left: 14.16px; top: 3.63px; position: absolute; border: 1.49px white solid">
-                </div>
-                <div
-                    style="width: 2.83px; height: 3.62px; left: 15.02px; top: -0px; position: absolute; border: 1.49px white solid">
-                </div>
-                <div
-                    style="width: 2.83px; height: 3.62px; left: 24.39px; top: -0px; position: absolute; border: 1.49px white solid">
-                </div>
-                <div
-                    style="width: 14.97px; height: 0px; left: 13.64px; top: 40.28px; position: absolute; border: 1.49px white solid">
-                </div>
-                <div
-                    style="width: 0px; height: 0.48px; left: 12.06px; top: 34.43px; position: absolute; border: 1.49px white solid">
-                </div>
-                <div
-                    style="width: 0px; height: 0.48px; left: 30.17px; top: 34.43px; position: absolute; border: 1.49px white solid">
-                </div>
-            </div>
+        <div class="caja2">
+            <img class="imgcom2" src="/images/minicomilla.svg">
+            <h3 class="titcom2">Solidaridad Apícola</h3>
+            <p class="ptitcom2">Únete a nuestra red para promover una apicultura responsable y proteger a nuestras abejas.
+            </p>
         </div>
-        <div style="width: 57.29px; height: 57.29px; position: relative">
-            <div
-                style="width: 44.37px; height: 46.75px; left: 6.46px; top: 5.27px; position: absolute; background: #F7A733">
-            </div>
+        <div class="caja3">
+            <img class="imgcom3" src="/images/minicomilla.svg">
+            <h3 class="titcom3">Apicultura Solidaria</h3>
+            <p class="ptitcom3">Únete a nuestra red para promover una apicultura responsable y proteger a nuestras abejas.
+            </p>
         </div>
-        <div
-            style="width: 248.26px; height: 57.29px; color: black; font-size: 19.10px; font-family: Inter; font-weight: 700; line-height: 18.14px; word-wrap: break-word">
-            Herramientas personalizadas para monitoreo y gestión apícola</div>
-        <div
-            style="width: 248.26px; height: 57.29px; color: black; font-size: 19.10px; font-family: Inter; font-weight: 700; line-height: 18.14px; word-wrap: break-word">
-            Amamos y respetamos a nuestras abejas.</div>
-    </div>
-
-    </section> --}}
+    </section>
 @endsection
 
 @section('footer')

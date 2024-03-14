@@ -188,13 +188,11 @@
 }
 
 .intcuadro1 {
-    background-color: blueviolet;
-    /* width: 310px; */
-    width: auto;
+    width: 43%;
     height: auto;
     position: absolute;
-    left: 8%;
-    top: 15%;
+    left: 0%;
+    top: 20%;
 
 }
 
@@ -210,7 +208,6 @@
     font-weight: 700;
     line-height: 45px;
     letter-spacing: -0.9px;
-    background-color: aquamarine;
     position: relative;
     left: 60px;
     bottom: 30px;
@@ -243,12 +240,12 @@
 /* Segundo Cuadro y titulo */
 
 .intcuadro2 {
-    /* width: 310px; */
-    /* width: auto;
 
-    height: auto; */
+    width: 43%;
+
+    height: auto;
     position: relative;
-    
+
 }
 
 .tit2cuadro {
@@ -258,7 +255,6 @@
     font-weight: 700;
     line-height: 45px;
     letter-spacing: -0.9px;
-    background-color: aquamarine;
     position: relative;
     left: 60px;
     bottom: 30px;
@@ -283,11 +279,11 @@
 /* Tercer Cuadro y titulo */
 
 .intcuadro3 {
-    width: auto;
+    width: 43%;
     height: auto;
     position: absolute;
-    left: 52%;
-    top: 25%;
+    left: 45%;
+    top: 20%;
 }
 
 .tit3cuadro {
@@ -296,7 +292,6 @@
     font-weight: 700;
     line-height: 45px;
     letter-spacing: -0.9px;
-    background-color: aquamarine;
     position: relative;
     left: 60px;
     bottom: 30px;
@@ -320,5 +315,211 @@
 
 /* Tercer Cuadro y titulo */
 
+
+/* Cuarto Cuadro y titulo */
+
+.intcuadro4 {
+    width: 43%;
+    height: auto;
+    position: absolute;
+    left: 45%;
+    top: 53.6%;
+}
+
+.tit4cuadro {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 45px;
+    letter-spacing: -0.9px;
+    position: relative;
+    left: 60px;
+    bottom: 30px;
+    width: 248.255px;
+
+}
+
+.ptit4 {
+    color: #000;
+    font-size: 19.097px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 700;
+    line-height: 18.142px;
+    letter-spacing: -0.477px;
+    width: 248.255px;
+    position: relative;
+    bottom: 5%;
+    bottom: 20px;
+    left: 60px;
+}
+
+/* Cuarto Cuadro y titulo */
+
 /* ? Todo Nosotros */
+
+/* ! Todo Compromisos */
+
+.compromisos {
+    display: flex;
+    background-color: #FDEBC8;
+    /* padding: 110.76px 0px 94.528px 0px; */
+    flex-direction: column;
+    position: relative;
+    width: 100%;
+    height: 850px;
+    flex-shrink: 0;
+}
+
+.imgcom {
+    position: absolute;
+    top: 60px;
+    left: 1.5%;
+}
+
+.titulocomp {
+    display: flex;
+    font-size: 48px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 700;
+    line-height: 125%;
+    letter-spacing: -1.2px;
+    width: 33%;
+    position: absolute;
+    top: 15%;
+    left: 9%;
+}
+
+.ptitcomp {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    position: absolute;
+    top: 30%;
+    left: 9.3%;
+    width: 32%;
+}
+
+
+/* Caja 1 */
+
+.caja1 {
+    width: 28%;
+    height: 30%;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    position: absolute;
+    left: 17%;
+    top: 38%;
+}
+
+.imgcom1 {
+    position: absolute;
+    top: 7%;
+    left: 9%;
+    top: 38%;
+}
+
+.titcom1 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    position: absolute;
+    left: 8%;
+    top: 13%;
+}
+
+.ptitcom1 {
+    font-size: 19.9px;
+    width: 78%;
+    position: absolute;
+    left: 16%;
+    top: 38%;
+}
+
+/* Caja 1 */
+
+/* Caja 2 */
+
+.caja2 {
+    width: 38%;
+    height: 30%;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+
+    position: absolute;
+    left: 60%;
+    top: 17%;
+}
+
+.imgcom2 {
+    position: absolute;
+    top: 7%;
+    left: 9%;
+    top: 38%;
+}
+
+.titcom2 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    position: absolute;
+    left: 8%;
+    top: 13%;
+}
+
+.ptitcom2 {
+    font-size: 19.9px;
+    width: 78%;
+    position: absolute;
+    left: 16%;
+    top: 38%;
+}
+
+
+/* Caja 2 */
+
+/* Caja 3 */
+
+.caja3 {
+    width: 38%;
+    height: 30%;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+
+    position: absolute;
+    left: 60%;
+    top: 57%;
+}
+
+.imgcom3 {
+    position: absolute;
+    top: 7%;
+    left: 9%;
+    top: 38%;
+}
+
+.titcom3 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    position: absolute;
+    left: 8%;
+    top: 13%;
+}
+
+.ptitcom3 {
+    font-size: 19.9px;
+    width: 78%;
+    position: absolute;
+    left: 16%;
+    top: 38%;
+}
+
+
+/* Caja 3 */
+
+/* ! Todo Compromisos */
 @layer components {}
