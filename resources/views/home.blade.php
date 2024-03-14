@@ -57,7 +57,7 @@
 @section('beneficio')
     <section class="ben bg-blue-400">
         <div>
-            <h1 class="titulo">Beneficios de Nuestra Plataforma</h1>
+            <h1 class="tituloben">Beneficios de Nuestra Plataforma</h1>
             <h2 class="subt">Potencia tu producción de miel con nuestro monitoreo en tiempo real. Maximiza eficiencia,
                 protege abejas y garantiza sostenibilidad.</h2>
         </div>
@@ -69,9 +69,30 @@
 @section('nosotros')
     <section class="nosotros">
         <div class="">
-            <h1 class="titulo text-3xl ">Apicultura con Corazón y Tecnología</h1>
-            <h2>Aprende más sobre nuestra historia y visión de la apicultura moderna.</h2>
+            <h1 class="titulonos text-5xl ">Apicultura con Corazón <br> y Tecnología</h1>
+            <h2 class="subnos pt-3">Aprende más sobre nuestra historia y visión de la <br> apicultura moderna.</h2>
+            <a href="#">
+                <div class="btnnos pt-">Descubre más</div>
+            </a>
         </div>
+        <div class="cuadro bg-slate-600">
+            <div class="intcuadro1">
+                <img class="imgbee" src="/images/bee_icon.svg">
+                <h2 class="tit1cuadro">Pasión por las <br> Abejas</h2>
+                <p class="ptit1">Amamos y respetamos a nuestras abejas.</p>
+            </div>
+            <div class="intcuadro2 bg-green-600">
+                <img class="imgbee" src="/images/rating.svg">
+                <h2 class="tit2cuadro">Monitoreo Eficiente</h2>
+                <p class="ptit2">Mejoramos el monitoreo de la miel con soluciones prácticas..</p>
+            </div>
+            <div class="intcuadro3 bg-red-400">
+                <img class="imgbee" src="/images/rating.svg">
+                <h2 class="tit3cuadro">Tecnología Eficaz</h2>
+                <p class="ptit3">Herramientas personalizadas para monitoreo y gestión apícola</p>
+            </div>
+        </div>
+
     </section>
 
 
