@@ -34,6 +34,9 @@
         @yield('beneficio')
         @yield('nosotros')
         @yield('compromisos')
+        @yield('sensores')
+        @yield('appmovil')
+        @yield('contactenos')
     </main>
 
     <footer>

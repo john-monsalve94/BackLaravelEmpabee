@@ -71,10 +71,6 @@
     right: 320px;
 }
 
-.logofut {
-    position: relative;
-    right: 160px;
-}
 
 /* Todo el hero */
 
@@ -522,4 +518,280 @@
 /* Caja 3 */
 
 /* ! Todo Compromisos */
+
+
+/* * Todo Sensores */
+
+/* * {
+    margin: 0;
+    padding: 0;
+} */
+
+.sensores {
+    height: 700px;
+}
+
+.container {
+    position: relative;
+    /* width: 100%; */
+    /* height: 100vh; */
+    /* background-color: black; */
+}
+
+.slider input {
+    visibility: hidden;
+    display: none;
+}
+
+.buttons {
+    position: absolute;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    bottom: 50px;
+    gap: 10px;
+}
+
+.buttons label {
+    width: .7%;
+    height: 10px;
+    background-color: #F7A733;
+    opacity: 0.5;
+    cursor: pointer;
+    z-index: 1;
+    transition: 300ms ease-in-out;
+    border-radius: 100%;
+}
+
+.buttons label:hover {
+    scale: 1.2;
+    opacity: 1;
+}
+
+.slider input:nth-child(1):checked~.buttons label:nth-child(1),
+.slider input:nth-child(2):checked~.buttons label:nth-child(2),
+.slider input:nth-child(3):checked~.buttons label:nth-child(3) {
+    opacity: 1;
+    scroll-margin: 1.2;
+    width: 40px;
+}
+
+.content {
+    position: relative;
+    width: 300vw;
+    display: flex;
+    transition: 400ms ease-in-out;
+}
+
+.firstslide,
+.secondslide,
+.thirdslide {
+    position: relative;
+    width: 100vw;
+    /* height: 100vh; */
+    height: 700px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.titulogeneral {
+    color: #F7A733;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 48px;
+    position: absolute;
+    top: 20%;
+    left: 20%;
+    /* text-align: center; */
+    /* font-style: normal; */
+    /* font-weight: 400; */
+    /* line-height: normal; */
+}
+
+.cajatit {
+    width: 50%;
+    height: 40%;
+    border-radius: 8px;
+    background: rgba(0, 0, 0, 0.05);
+    box-shadow: 0px 4px 4px 2px #F7A733;
+    position: absolute;
+    left: 7%;
+    top: 42%;
+}
+
+.titsen {
+    color: #F7A733;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 36px;
+    position: absolute;
+    top: 10%;
+    left: 13%;
+
+
+    /* font-style: normal; */
+    /* font-weight: 400; */
+    /* line-height: normal; */
+}
+
+.ptitsen {
+    color: #F8BB51;
+    position: absolute;
+    top: 50%;
+    left: 5%;
+    width: 91%;
+    font-size: 20px;
+}
+
+.img1slide {
+    position: absolute;
+    top: 10%;
+    left: 0;
+}
+
+.img2slide {
+    position: absolute;
+    top: 10%;
+    right: 0;
+}
+
+.img3slide {
+    position: absolute;
+    left: 62%;
+}
+
+.slider input:nth-child(1):checked~.content {
+    left: 0;
+}
+
+.slider input:nth-child(2):checked~.content {
+    left: -100vw;
+}
+
+.slider input:nth-child(3):checked~.content {
+    left: -200vw;
+}
+
+h1 {
+    font-size: 5rem;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+
+/* * Todo Sensores */
+
+/* ? Todo App Movil */
+
+.appmovil {
+    display: flex;
+    background-color: #FBD78C;
+    /* padding: 110.76px 0px 94.528px 0px; */
+    flex-direction: column;
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    flex-shrink: 0;
+
+
+    /* display: flex;
+    position: relative;
+    height: 700px; */
+}
+
+.tituloapp {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 125%;
+    letter-spacing: -1.2px;
+    width: 42%;
+    position: absolute;
+    top: 20%;
+    left: 10%;
+}
+
+
+.ptitapp {
+    display: flex;
+    width: 42%;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    position: absolute;
+    top: 50%;
+    left: 10%;
+}
+
+.imgapp1 {
+    width: 18%;
+    height: 70%;
+    position: absolute;
+    top: 2%;
+    left: 58%;
+}
+
+.imgapp2 {
+    width: 18%;
+    height: 70%;
+    position: absolute;
+    top: 28%;
+    left: 78%;
+}
+
+.imgapp3 {
+    position: absolute;
+    top: 70%;
+    left: 10%;
+}
+
+/* * Todo App Movil */
+
+/* Todo Contactenos */
+
+.contactenos {
+    position: relative;
+    display: flex;
+}
+
+
+.titulocontact {
+    color: #000;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 123.333%;
+    letter-spacing: -1px;
+    padding-top: 5%;
+}
+
+.ptitcontact {
+    color: #000;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 109.63%;
+    letter-spacing: -0.45px;
+    padding-top: 3%;
+    width: 100%;
+    padding-left: 27%;
+}
+
+.imgcontact {
+    max-width: 50%;
+}
+
+
+/* Todo Contactenos */
+
+/* ? Footer */
+
+/* .logofut {
+    position: relative;
+    right: 160px;
+} */
+
+/* ? Footer */
 @layer components {}

@@ -29,9 +29,9 @@
                     </div>
                     <div class="flex flex-col lg:flex-row text-center">
                         <a href="#"
-                            class="text-black bg-amber-200 py-4 px-5 rounded-lg hover:bg-amber-300 hover:text-white transition duration-200 case-in-out lg:mr-5 mb-8 lg:mb-0">Registrarse</a>
+                            class="text-black bg-amber-200 py-4 px-5 rounded-lg hover:bg-amber-300 hover:text-white transition duration-200 ease-in-out lg:mr-5 mb-8 lg:mb-0">Registrarse</a>
                         <a href="#"
-                            class="text-black bg-gradient-to-b from-amber-600 to-amber-100 py-4 px-5 rounded-lg hover:bg-amber-300 hover:text-white transition duration-200 case-in-out mb-8 lg:mb-0">Iniciar
+                            class="text-black bg-gradient-to-b from-amber-600 to-amber-100 py-4 px-5 rounded-lg hover:bg-amber-300 hover:text-white transition duration-200 ease-in-out mb-8 lg:mb-0">Iniciar
                             Sesión</a>
                     </div>
                 </div>
@@ -53,7 +53,6 @@
     </section>
 @endsection
 
-
 @section('beneficio')
     <section class="ben bg-blue-400 w-full">
         <div>
@@ -64,7 +63,6 @@
 
     </section>
 @endsection
-
 
 @section('nosotros')
     <section class="nosotros">
@@ -131,6 +129,94 @@
     </section>
 @endsection
 
+@section('sensores')
+    <section class="sensores">
+        <div class="container">
+
+            <div class="slider">
+
+
+                <input type="radio" name="slider" id="slideOne" checked>
+                <input type="radio" name="slider" id="slideTwo">
+                <input type="radio" name="slider" id="slideThree">
+
+                <div class="buttons">
+                    <label for="slideOne"></label>
+                    <label for="slideTwo"></label>
+                    <label for="slideThree"></label>
+                </div>
+
+                <div class="content">
+                    <div class="firstslide">
+                        <img class="img1slide" src="/images/ovalosensores1.svg" alt="">
+                        <img class="img2slide" src="/images/ovalosensores2.svg" alt="">
+                        <img class="img3slide" src="/images/temperatura.svg" alt="">
+                        <h1 class="titulogeneral">Nuestros sensores</h1>
+                        <div class="cajatit">
+                            <h2 class="titsen">Sensor De Temperatura Sht31</h2>
+                            <p class="ptitsen">El sensor digital SHT31 ofrece mediciones precisas de temperatura y humedad
+                                relativa a bajo costo. Ideal para control de temperatura, aire acondicionado y monitoreo
+                                ambiental agrícola.</p>
+                        </div>
+                    </div>
+                    <div class="secondslide">
+                        <img class="img1slide" src="/images/ovalosensores1.svg" alt="">
+                        <img class="img2slide" src="/images/ovalosensores2.svg" alt="">
+                        <img class="img3slide" src="/images/ph.svg" alt="">
+                        <h1 class="titulogeneral">Nuestros sensores</h1>
+                        <div class="cajatit">
+                            <h2 class="titsen">Modulo Detector Ph Ph-4502c </h2>
+                            <p class="ptitsen">El módulo sensor de pH PH-4502C mide el pH usando un electrodo. Funciona
+                                con 5V y es compatible con dispositivos como Arduino, Raspberry Pi, etc., siempre que tengan
+                                una entrada analógica disponible.</p>
+                        </div>
+                    </div>
+                    <div class="thirdslide">
+                        <img class="img1slide" src="/images/ovalosensores1.svg" alt="">
+                        <img class="img2slide" src="/images/ovalosensores2.svg" alt="">
+                        <img class="img3slide" src="/images/peso.svg" alt="">
+                        <h1 class="titulogeneral">Nuestros sensores</h1>
+                        <div class="cajatit">
+                            <h2 class="titsen">Sensor De Fuerza Peso</h2>
+                            <p class="ptitsen">La capacidad del sensor de carga es de hasta 110 libras o 55 kg. Este
+                                dispositivo convierte la fuerza aplicada sobre él en una señal eléctrica, lo que permite
+                                medir el peso de un objeto mediante un voltaje correspondiente.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+@endsection
+
+@section('appmovil')
+    <section class="appmovil">
+        <div>
+            <img class="imgapp1" src="/images/login.png" alt="">
+            <img class="imgapp2" src="/images/colmena.png" alt="">
+            <a href="https://play.google.com/store/games?hl=es_CO&gl=US&pli=1">
+                <img class="imgapp3 h-18" src="/images/play2.svg" alt="">
+            </a>
+            <h4 class="tituloapp">Gestiona tus colmenas desde cualquier lugar con nuestra app móvil.</h4>
+            <p class="ptitapp">Descarga la aplicación móvil para monitorear tu producción de miel, registrar datos y
+                optimizar tu trabajo de
+                apicultura.</p>
+        </div>
+    </section>
+@endsection
+
+@section('contactenos')
+    <section class="contactenos">
+        <img class="imgcontact" src="/images/panal.png" alt="">
+        <div>
+            <h3 class="titulocontact">Contactanos</h3>
+            <p class="ptitcontact">¿Tienes alguna pregunta? Rellena el formulario para contactar con nuestro equipo</p>
+        </div>
+    </section>
+@endsection
+
 @section('footer')
     {{-- w-max h-fit --}}
     <footer>
@@ -174,7 +260,7 @@
                                     class="hover:text-white"> Descargar ahora</a></li>
                         </ul>
                         <div class="pt-8 w-max h-fit">
-                            <a href="#">
+                            <a href="https://play.google.com/store/games?hl=es_CO&gl=US&pli=1">
                                 <img src="/images/play2.svg" class="h-18">
                             </a>
                         </div>
