@@ -210,10 +210,58 @@
 @section('contactenos')
     <section class="contactenos">
         <img class="imgcontact" src="/images/panal.png" alt="">
-        <div>
-            <h3 class="titulocontact">Contactanos</h3>
-            <p class="ptitcontact">¿Tienes alguna pregunta? Rellena el formulario para contactar con nuestro equipo</p>
+
+        <div class="container">
+            <h1 class="titulocontact">Contactanos</h1>
+            <h2 class="ptitcontact">¿Tienes alguna pregunta? Rellena el formulario para contactar con nuestro equipo.</h2>
+            <form action="#" method="post">
+                <label for="nombre">Nombre *</label>
+                <input type="text" id="nombre" name="nombre" placeholder="Ingrese su nombre" required>
+
+                <label for="apellido">Apellido *</label>
+                <input type="text" id="apellido" name="apellido" placeholder="Ingrese su apellido" required>
+
+                <label for="correo">Correo *</label>
+                <input type="email" id="correo" name="correo" placeholder="Ingrese su correo electrónico"
+                    required>
+
+                <label for="mensaje">Mensaje:</label>
+                <textarea id="mensaje" name="mensaje" rows="4" placeholder="Escriba su mensaje aquí"></textarea>
+
+                <button type="submit">Enviar Mensaje</button>
+            </form>
         </div>
+
+
+
+
+        {{-- 
+        <div class="caja-form">
+            <form>
+
+                <h3 class="titulocontact">Contactanos</h3>
+                <p class="ptitcontact">¿Tienes alguna pregunta? Rellena el formulario para contactar con nuestro equipo</p>
+
+                <div class="input-group">
+
+                    <label for="name">Nombre</label>
+                    <input type="text" name="name" id="name" placeholder="Nombre">
+
+                    <label for="phone">Telefono</label>
+                    <input type="tel" name="phone" id="name" placeholder="Telefono">
+
+                    <label for="email">Email</label>
+                    <input type="email" name="email" id="email" placeholder="Email">
+
+                    <label for="message">Mensaje</label>
+                    <textarea name="message" id="message" cols="30" rows="5" placeholder="Mensaje"></textarea>
+
+                    <input class="btn" type="submit" value="Enviar">
+
+                </div>
+
+            </form>
+        </div> --}}
     </section>
 @endsection
 
@@ -275,7 +323,7 @@
                         © 2024 <strong>Empabee UI Kit.</strong> All rights reserved
                     </div>
                 </div>
-                <div class="text-center text-xl text-white mb-2   lg:py-0 px-8 sm:px-24 lg:px-0">
+                <div class="text-center text-xl text-white mb-2 lg:py-0 px-8 sm:px-24 xl:px-0 2xl:px-0">
                     <a href="https://twitter.com/?lang=es"
                         class="w-10 h-10 rounded-full bg-amber-400 hover:bg-amber-600 mx-1 inline-block pt-1"><i
                             class="fa fa-twitter"></i></a>
@@ -289,9 +337,9 @@
 
             </div>
         </div>
+
     </footer>
 @endsection
-
 
 @section('javascript')
     <script src="/js/home.js"></script>

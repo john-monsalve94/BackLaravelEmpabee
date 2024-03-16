@@ -756,16 +756,7 @@ h1 {
 }
 
 
-.titulocontact {
-    color: #000;
-    font-family: Arial, Helvetica, sans-serif;
-    text-align: center;
-    font-size: 40px;
-    font-weight: 700;
-    line-height: 123.333%;
-    letter-spacing: -1px;
-    padding-top: 5%;
-}
+
 
 .ptitcontact {
     color: #000;
@@ -780,11 +771,136 @@ h1 {
 }
 
 .imgcontact {
-    max-width: 50%;
+    /* max-width: 50%; */
+    width: 120%;
+}
+
+/* Formulario */
+
+.container {
+    width: 50%;
+    margin: 2%;
+    margin-top: 2vh;
+    /* Ubicado después de la mitad de la página */
+}
+
+.titulocontact,
+.ptitcontact {
+    text-align: center;
+    padding: 5%;
+    font-family: Arial, Helvetica, sans-serif;
+
+}
+.titulocontact{
+    font-size: 48px;
+    font-weight: 700;
+}
+.ptitcontact{
+    width: 70%;
+    position: relative;
+    left: 15%;
+    font-size: 22px;
+}
+
+form {
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+input,
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+textarea {
+    background-color: #FDEBC8;
 }
 
 
+
+
+/* 
+.caja-form {
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+form {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+    text-align: center;
+    width: 30%;
+    
+    display: flex; */
+/* width: 1440px; */
+/* height: 631px; */
+/* align-items: center; */
+/* gap: 103px; */
+/* flex-shrink: 0; */
+/* } */
+
+/* .input-group {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.titulocontact {
+    color: #000;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 123.333%;
+    letter-spacing: -1px;
+    padding-top: 5%;
+}
+
+label {
+    color: #283629;
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+input,
+textarea {
+    padding: 17px 25px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    background-color: rgb(179, 223, 208);
+    border: 2px solid rgba(0, 0, 0, 0.05);
+    color: #283629;
+    outline: none;
+}
+
+input::placeholder, textarea::placeholder{
+    color: rgb(179, 223, 208);
+}
+
+.form-txt{
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+} */
+
 /* Todo Contactenos */
+
+
+
 
 /* ? Footer */
 
