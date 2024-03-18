@@ -25,6 +25,12 @@ Route::get('home', function () {
     // return 'Hola';
 });
 
+Route::get('sesion', function () {
+    return view('sesion');
+    // return 'Hola';s
+});
+
+
 
 
 

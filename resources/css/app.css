@@ -522,20 +522,8 @@
 
 /* * Todo Sensores */
 
-/* * {
-    margin: 0;
-    padding: 0;
-} */
-
 .sensores {
     height: 700px;
-}
-
-.container {
-    position: relative;
-    /* width: 100%; */
-    /* height: 100vh; */
-    /* background-color: black; */
 }
 
 .slider input {
@@ -588,7 +576,6 @@
 .thirdslide {
     position: relative;
     width: 100vw;
-    /* height: 100vh; */
     height: 700px;
     display: flex;
     justify-content: center;
@@ -602,10 +589,6 @@
     position: absolute;
     top: 20%;
     left: 20%;
-    /* text-align: center; */
-    /* font-style: normal; */
-    /* font-weight: 400; */
-    /* line-height: normal; */
 }
 
 .cajatit {
@@ -627,11 +610,6 @@
     position: absolute;
     top: 10%;
     left: 13%;
-
-
-    /* font-style: normal; */
-    /* font-weight: 400; */
-    /* line-height: normal; */
 }
 
 .ptitsen {
@@ -685,17 +663,11 @@ h1 {
 .appmovil {
     display: flex;
     background-color: #FBD78C;
-    /* padding: 110.76px 0px 94.528px 0px; */
     flex-direction: column;
     position: relative;
     width: 100%;
     height: 100vh;
     flex-shrink: 0;
-
-
-    /* display: flex;
-    position: relative;
-    height: 700px; */
 }
 
 .tituloapp {
@@ -755,9 +727,6 @@ h1 {
     display: flex;
 }
 
-
-
-
 .ptitcontact {
     color: #000;
     font-family: Arial, Helvetica, sans-serif;
@@ -771,7 +740,6 @@ h1 {
 }
 
 .imgcontact {
-    /* max-width: 50%; */
     width: 120%;
 }
 
@@ -791,11 +759,13 @@ h1 {
     font-family: Arial, Helvetica, sans-serif;
 
 }
-.titulocontact{
+
+.titulocontact {
     font-size: 48px;
     font-weight: 700;
 }
-.ptitcontact{
+
+.ptitcontact {
     width: 70%;
     position: relative;
     left: 15%;
@@ -826,76 +796,16 @@ textarea {
     background-color: #FDEBC8;
 }
 
-
-
-
-/* 
-.caja-form {
+button.btnform {
+    border-radius: 10px;
+    padding: 2.3%;
     font-family: Arial, Helvetica, sans-serif;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    font-weight: 500;
+    /* width: 23%;
+    height: 30px; */
 }
 
-form {
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-    border-radius: 20px;
-    text-align: center;
-    width: 30%;
-    
-    display: flex; */
-/* width: 1440px; */
-/* height: 631px; */
-/* align-items: center; */
-/* gap: 103px; */
-/* flex-shrink: 0; */
-/* } */
-
-/* .input-group {
-    display: flex;
-    flex-direction: column;
-    text-align: left;
-}
-
-.titulocontact {
-    color: #000;
-    font-family: Arial, Helvetica, sans-serif;
-    text-align: center;
-    font-size: 40px;
-    font-weight: 700;
-    line-height: 123.333%;
-    letter-spacing: -1px;
-    padding-top: 5%;
-}
-
-label {
-    color: #283629;
-    font-size: 16px;
-    font-weight: 600;
-    margin-bottom: 15px;
-}
-
-input,
-textarea {
-    padding: 17px 25px;
-    border-radius: 5px;
-    margin-bottom: 20px;
-    background-color: rgb(179, 223, 208);
-    border: 2px solid rgba(0, 0, 0, 0.05);
-    color: #283629;
-    outline: none;
-}
-
-input::placeholder, textarea::placeholder{
-    color: rgb(179, 223, 208);
-}
-
-.form-txt{
-    margin-bottom: 30px;
-    display: flex;
-    justify-content: space-between;
-    text-align: center;
-} */
+/* Formulario */
 
 /* Todo Contactenos */
 
@@ -910,4 +820,41 @@ input::placeholder, textarea::placeholder{
 } */
 
 /* ? Footer */
+
+
+
+
+/* * Desde aquí el Login */
+
+button.btnsesion {
+    display: flex;
+    border-radius: 17.959px;
+    border: 0.898px solid #FFF;
+    background: linear-gradient(90deg, #F8BB51 0%, #FFA500 97.81%);
+    box-shadow: 0px 3.592px 3.592px 0px rgba(0, 0, 0, 0.25);
+    height: 44.898px;
+    width: 15%;
+    /* flex-shrink: 0; */
+    /* texto */
+    color: #FDF3F3;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16.163px;
+    font-weight: 700;
+    align-items: center;
+    justify-content: space-between;
+    position: absolute;
+    left: 51%;
+    top:92%;
+
+}
+
+.imgsesion{
+    /* padding-left: 5%; */
+}
+
+form{
+    height: 70vh;
+}
+
+/* * Hasta aquí el Login */
 @layer components {}

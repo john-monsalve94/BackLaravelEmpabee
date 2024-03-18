@@ -30,7 +30,7 @@
                     <div class="flex flex-col lg:flex-row text-center">
                         <a href="#"
                             class="text-black bg-amber-200 py-4 px-5 rounded-lg hover:bg-amber-300 hover:text-white transition duration-200 ease-in-out lg:mr-5 mb-8 lg:mb-0">Registrarse</a>
-                        <a href="#"
+                        <a href="login"
                             class="text-black bg-gradient-to-b from-amber-600 to-amber-100 py-4 px-5 rounded-lg hover:bg-amber-300 hover:text-white transition duration-200 ease-in-out mb-8 lg:mb-0">Iniciar
                             Sesión</a>
                     </div>
@@ -228,7 +228,7 @@
                 <label for="mensaje">Mensaje:</label>
                 <textarea id="mensaje" name="mensaje" rows="4" placeholder="Escriba su mensaje aquí"></textarea>
 
-                <button type="submit">Enviar Mensaje</button>
+                <button class="btnform bg-gradient-to-b from-amber-600 to-amber-100" type="submit">Enviar</button>
             </form>
         </div>
 
