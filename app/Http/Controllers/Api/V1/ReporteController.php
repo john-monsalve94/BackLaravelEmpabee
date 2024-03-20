@@ -25,11 +25,30 @@ class ReporteController extends Controller
         $relations = $request->query('relations', $this->relations);
         $page = $request->query('page', 1);
         $limit = $request->query('limit', 10);
+        $limit = $request->query('estado', 'Todos');
         $colmena_id = $request->query('colmena_id');
 
         $reportes = Reporte::with($relations)->whereHas('controlador', function ($query) use ($colmena_id) {
             $query->where('colmena_id', $colmena_id);
-        })->latest()->paginate($limit, ['*'], 'page', $page);
+        });
+
+        switch ($reportes) {
+            case ReportStatus::INFO:
+                $reportes = $reportes -> where('titulo_reporte',ReportStatus::INFO);
+                break;
+
+            case ReportStatus::ADVERTENCIA:
+                $reportes = $reportes -> where('titulo_reporte',ReportStatus::ADVERTENCIA);
+                break;
+            case ReportStatus::ALERTA:
+                $reportes = $reportes -> where('titulo_reporte',ReportStatus::ALERTA);
+                break;
+
+            default:
+                break;
+        }
+
+        $reportes = $reportes->latest()->paginate($limit, ['*'], 'page', $page);
 
         $data = $reportes->items();
         $currentPage = $reportes->currentPage();
@@ -72,9 +91,9 @@ class ReporteController extends Controller
             [
                 'user_id' => $user_id,
                 'mensaje' => $reporte->contenido,
-                'comand'=>[
-                    'go_to'=>'/colmena',
-                    'colmena_id'=>$reporte->controlador->colmena_id
+                'comand' => [
+                    'go_to' => '/colmena',
+                    'colmena_id' => $reporte->controlador->colmena_id
                 ]
             ]
         );
