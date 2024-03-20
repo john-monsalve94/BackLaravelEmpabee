@@ -25,14 +25,14 @@ class ReporteController extends Controller
         $relations = $request->query('relations', $this->relations);
         $page = $request->query('page', 1);
         $limit = $request->query('limit', 10);
-        $limit = $request->query('estado', 'Todos');
+        $estado = $request->query('estado', 'Todos');
         $colmena_id = $request->query('colmena_id');
 
         $reportes = Reporte::with($relations)->whereHas('controlador', function ($query) use ($colmena_id) {
             $query->where('colmena_id', $colmena_id);
         });
 
-        switch ($reportes) {
+        switch ($estado) {
             case ReportStatus::INFO:
                 $reportes = $reportes -> where('titulo_reporte',ReportStatus::INFO);
                 break;
