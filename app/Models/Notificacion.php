@@ -11,6 +11,10 @@ class Notificacion extends Model
     use HasFactory;
     protected $table ="notificacions";
     protected $guarded = [];
+    protected $casts = [
+        'comand' => 'json',
+        'leido'=>'boolean'
+    ];
 
     public function user():BelongsTo
     {

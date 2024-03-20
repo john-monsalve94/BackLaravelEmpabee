@@ -18,6 +18,9 @@ class Reporte extends Model
         'promedio_peso', 
         'promedio_humedad'
     ];
+    protected $casts = [
+        'leido'=>'boolean'
+    ];
 
     public function getPromedioTemperaturaAttribute()
     {

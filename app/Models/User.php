@@ -58,12 +58,12 @@ class User extends Authenticatable implements JWTSubject
 
     public function municipio_nacimiento(): BelongsTo
     {
-        return $this->belongsTo(Municipios::class, 'municipio_nacimiento_id');
+        return $this->belongsTo(Municipio::class, 'municipio_nacimiento_id');
     }
 
     public function municipio_residencia(): BelongsTo
     {
-        return $this->belongsTo(Municipios::class, 'municipio_residencia_id');
+        return $this->belongsTo(Municipio::class, 'municipio_residencia_id');
     }
 
     public function tipo_identificacion(): BelongsTo

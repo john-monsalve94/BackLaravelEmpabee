@@ -21,7 +21,7 @@ class ColmenaController extends Controller
     {
         $relations = $request->query('relations',$this->relations);
         $page = $request->query('page',1);
-        $limit = $request->query('limit',2);
+        $limit = $request->query('limit',10);
         $colmenas = Colmena::with($relations)
             ->withoutTrashed()
             ->where('user_id', Auth::id())

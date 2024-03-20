@@ -18,6 +18,7 @@ return new class extends Migration
             $table->id()->comment('Identificador único de la notificación'); // Comentario sobre el campo id
             $table->string('mensaje')->comment('Mensaje de la notificación'); // Comentario sobre el campo mensaje
             $table->foreignId('user_id')->references('id')->on('users')->comment('ID del usuario que recibe la notificacion'); // Comentario sobre el campo colmena_id (clave foránea)
+            $table->text('comand')->nullable();
             $table->boolean('leido')->default(false)->comment('Indica si el usuario ya leyo la notificación');
             $table->timestamps(); // Comentario sobre los campos de registro de fecha de creación y actualización
         });

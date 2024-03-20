@@ -4,9 +4,8 @@ namespace Database\Factories;
 
 use App\Enums\DefaultProfilePhoto;
 use App\Enums\Genero;
-use App\Models\Municipios;
+use App\Models\Municipio;
 use App\Models\TipoIdentificacion;
-use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 
@@ -42,7 +41,7 @@ class UserFactory extends Factory
         $primer_apellido = $this->faker->lastName();
         $segundo_apellido = $this->faker->lastName();
 
-        $ciudad_id = Municipios::pluck('id')->toArray();
+        $ciudad_id = Municipio::pluck('id')->toArray();
         $tipo_identificacion_id = TipoIdentificacion::pluck('id')->toArray();
         $telefono = '';
         $identificacion = '';

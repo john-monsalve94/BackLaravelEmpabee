@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Auth\RegisterRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -39,5 +40,18 @@ class AuthController extends Controller
         return response()->json([
             'access_token' => $token
         ]);
+    }
+
+    public function register(RegisterRequest $request)
+    {
+        $user = User::create($request->all());
+
+        if (! $token = JWTAuth::attempt($request->only('email','password'))) {
+            return response()->json(['error' => 'Unauthorized'], 401);
+        }
+
+        JWTAuth::setToken($token);
+
+        return $this->respondWithToken($token);
     }
 }

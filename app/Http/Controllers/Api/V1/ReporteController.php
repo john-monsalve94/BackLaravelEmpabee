@@ -6,8 +6,6 @@ use App\Enums\ReportStatus;
 use App\Events\NotificacionEvent;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Reporte\ReporteByColmenaRequest;
-use App\Http\Requests\Reporte\StoreReporteRequest;
-use App\Models\Controlador;
 use App\Models\Medida;
 use App\Models\Notificacion;
 use App\Models\Reporte;
@@ -26,7 +24,7 @@ class ReporteController extends Controller
     {
         $relations = $request->query('relations', $this->relations);
         $page = $request->query('page', 1);
-        $limit = $request->query('limit', 2);
+        $limit = $request->query('limit', 10);
         $colmena_id = $request->query('colmena_id');
 
         $reportes = Reporte::with($relations)->whereHas('controlador', function ($query) use ($colmena_id) {
@@ -44,10 +42,6 @@ class ReporteController extends Controller
         ]);
     }
 
-
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
         $controlador_id = $request->header('X-Sensor-UUID');
@@ -77,37 +71,17 @@ class ReporteController extends Controller
         $notificacion = Notificacion::create(
             [
                 'user_id' => $user_id,
-                'mensaje' => $reporte->contenido
+                'mensaje' => $reporte->contenido,
+                'comand'=>[
+                    'go_to'=>'/colmena',
+                    'colmena_id'=>$reporte->controlador->colmena_id
+                ]
             ]
         );
 
         broadcast(new NotificacionEvent($notificacion));
 
         return response()->json($reporte);
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(Reporte $reporte)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Reporte $reporte)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Reporte $reporte)
-    {
-        //
     }
 
     private function report_status(Reporte $reporte): array
