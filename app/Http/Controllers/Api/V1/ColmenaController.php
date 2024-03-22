@@ -4,54 +4,66 @@ namespace App\Http\Controllers\Api\V1;
 
 use App\Http\Controllers\Controller;
 use App\Models\Colmena;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class ColmenaController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
+    private $relations;
+
+    public function __construct()
     {
-        $colmenas = Colmena::withoutTrashed()->where('users_id',Auth::id())->get();
-        return response()->json($colmenas);
+        $this->relations = [];
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
+    public function index(Request $request)
     {
-        $data = $request->all();
-        $data['users_id']= Auth::id();
-        $colmena = Colmena::create($data);
+        $relations = $request->query('relations',$this->relations);
+        $page = $request->query('page',1);
+        $limit = $request->query('limit',10);
+        $colmenas = Colmena::with($relations)
+            ->withoutTrashed()
+            ->where('user_id', Auth::id())
+            ->latest()
+            ->paginate($limit,['*'],'page',$page);
+
+            $data = $colmenas->items();
+            $currentPage = $colmenas->currentPage();
+            $totalPages = $colmenas->lastPage();
+        
+            return response()->json([
+                'data' => $data,
+                'current_page' => $currentPage,
+                'total_pages' => $totalPages,
+            ]);
+    }
+
+    public function store()
+    {
+        $start_date = Carbon::now();
+        $count_colmenas = Colmena::where('user_id',Auth::id())->count();
+        $colmena = Colmena::create([
+            'nombre'=>'Colmena'.($count_colmenas+1),
+            'fecha_inicio'=>$start_date
+        ]);
         return response()->json($colmena);
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(Colmena $colmena)
     {
         return response()->json($colmena);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, Colmena $colmena)
     {
         $colmena->update($request->all());
         return response()->json($colmena);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(Colmena $colmena)
     {
         $colmena->delete();
-        return response()->json(['message'=>'Colmena eliminada correctamente']);
+        return response()->json(['message' => 'Colmena eliminada correctamente']);
     }
 }

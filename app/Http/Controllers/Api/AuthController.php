@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Auth\RegisterRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -23,7 +24,7 @@ class AuthController extends Controller
     }
 
     public function perfil(){
-        $user = JWTAuth::parseToken()->authenticate();
+        $user = User::find(Auth::id());
         return response()->json($user);
     }
 
@@ -37,9 +38,20 @@ class AuthController extends Controller
     protected function respondWithToken($token)
     {
         return response()->json([
-            'access_token' => $token,
-            'token_type' => 'bearer',
-            'expires_in' => 3600
+            'access_token' => $token
         ]);
+    }
+
+    public function register(RegisterRequest $request)
+    {
+        $user = User::create($request->all());
+
+        if (! $token = JWTAuth::attempt($request->only('email','password'))) {
+            return response()->json(['error' => 'Unauthorized'], 401);
+        }
+
+        JWTAuth::setToken($token);
+
+        return $this->respondWithToken($token);
     }
 }

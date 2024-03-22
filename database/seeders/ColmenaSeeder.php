@@ -3,16 +3,19 @@
 namespace Database\Seeders;
 
 use App\Models\Colmena;
+use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class ColmenaSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     */
+    use WithoutModelEvents;
+    
     public function run(): void
-    {
-        Colmena::factory(1000)->create();
+    {  
+        $users_id = User::pluck('id')->toArray();
+        foreach ($users_id as $id) {
+            Colmena::factory(5)->create(['user_id'=>$id]);
+        }
     }
 }
