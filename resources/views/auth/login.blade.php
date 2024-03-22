@@ -1,4 +1,4 @@
-<x-guest-layout>
+<x-guest-layout class="log">
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
     <script src="https://cdn.tailwindcss.com"></script>
@@ -10,7 +10,7 @@
         <!-- Email Address -->
         <div>
             <x-input-label for="email" :value="__('Correo')"/>
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required
+            <x-text-input id="email" class="inputemail mt-1 w-full" type="email" name="email" :value="old('email')" required
                 autofocus autocomplete="username" />
             <x-input-error :messages="$errors->get('email')" class="mt-2" />
         </div>
@@ -19,7 +19,7 @@
         <div class="mt-4">
             <x-input-label for="password" :value="__('Contraseña')" />
 
-            <x-text-input id="password" class="block mt-1 w-full" type="password" name="password" required
+            <x-text-input id="password" class="inputpass mt-1 w-full" type="password" name="password" required
                 autocomplete="current-password" />
 
             <x-input-error :messages="$errors->get('password')" class="mt-2" />

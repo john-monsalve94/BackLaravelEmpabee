@@ -82,7 +82,6 @@
     padding: 70px 164px;
     justify-content: center;
     align-items: center;
-    background: url(/public/images/);
 }
 
 .titulo {
@@ -110,11 +109,102 @@
     line-height: 28px;
 }
 
+.honeycomb {
+    background-color: #fff;
+    display: -webkit-box;
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    min-width: 1200px;
+    margin: 0 auto;
+    padding: 0;
+    transform: translate(80px);
+}
+
+.honeyicons {
+    background-color: green;
+    -webkit-box-flex: 0;
+    flex: 0 1 250px;
+    min-width: 250px;
+    height: 137.5px;
+    margin: 65.4px 12.5px 25px;
+    position: relative;
+    padding: 0.5em;
+    text-align: center;
+    z-index: 1;
+    box-shadow: opx 0px 15px 0 rgba(0, 0, 0, 0.1);
+}
+
+.honey_img {
+    background-color: red;
+    /* object-fit: cover; */
+    object-position: center;
+}
+
+.honey_title {
+    height: 100%;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+    word-break: break-word;
+    text-transform: uppercase;
+    color: #fff;
+    font-weight: 700;
+    font-size: 1.75em;
+    transition: opacity 350ms;
+}
+
+.honey_title>small {
+    font-weight: 300;
+    margin-top: 0.25em;
+}
+
+.honeyicons::before,
+.heneyicons::after {
+    content: '';
+}
+
+.honeyicons::before,
+.heneyicons::after,
+.honey_img {
+    top: -50%;
+    left: 0;
+    width: 100%;
+    height: 200%;
+    display: block;
+    position: absolute;
+    -webkit-clip-path: polygon(50% 0%, 100% 50%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    clip-path: polygon (50% 0%, 100% 50%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    z-index: -1;
+}
+
+.honeyicons::before {
+    background: #F7A733;
+    transform: scale(1.055);
+}
+
+.heneyicons::after {
+    background: #111111;
+    opacity: 0.7;
+    transition: opacity 350ms;
+    -webkit-transition: opacity 350ms;
+
+}
 
 /** Todo Beneficios */
 
 
-/* ? Todo Nosotros */
+/* ? Desde aquí Nosotros */
 
 .nosotros {
 
@@ -132,7 +222,7 @@
 
 }
 
-/* ? Todo Nosotros */
+/* ? Hasta aquí Nosotros */
 
 /* Primer Cuadro y titulo */
 .titulonos {
@@ -524,6 +614,7 @@
 
 .sensores {
     height: 700px;
+    position: relative;
 }
 
 .slider input {
@@ -536,8 +627,8 @@
     width: 100%;
     display: flex;
     justify-content: center;
-    bottom: 50px;
     gap: 10px;
+    bottom: 5%;
 }
 
 .buttons label {
@@ -548,7 +639,9 @@
     cursor: pointer;
     z-index: 1;
     transition: 300ms ease-in-out;
-    border-radius: 100%;
+    border-radius: 20px;
+    bottom: 0%;
+
 }
 
 .buttons label:hover {
@@ -656,7 +749,7 @@ h1 {
 }
 
 
-/* * Todo Sensores */
+/* * Hata aquí Sensores */
 
 /* ? Todo App Movil */
 
@@ -826,6 +919,10 @@ button.btnform {
 
 /* * Desde aquí el Login */
 
+.log {
+    background-color: red;
+}
+
 button.btnsesion {
     display: flex;
     border-radius: 17.959px;
@@ -844,17 +941,19 @@ button.btnsesion {
     justify-content: space-between;
     position: absolute;
     left: 51%;
-    top:92%;
+    top: 92%;
 
 }
 
-.imgsesion{
-    /* padding-left: 5%; */
+form.formsesion {
+    background-color: black;
 }
 
-form{
+
+/* form {
+    display: block;
     height: 70vh;
-}
+} */
 
 /* * Hasta aquí el Login */
 @layer components {}

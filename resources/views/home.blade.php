@@ -54,11 +54,35 @@
 @endsection
 
 @section('beneficio')
-    <section class="ben bg-blue-400 w-full">
+    <section class="ben bg-white w-full">
         <div>
             <h1 class="tituloben">Beneficios de Nuestra Plataforma</h1>
             <h2 class="subt">Potencia tu producción de miel con nuestro monitoreo en tiempo real. Maximiza eficiencia,
                 protege abejas y garantiza sostenibilidad.</h2>
+        </div>
+        <div>
+            <ul class="honeycomb">
+                <li class="honeyicons">
+                    <img class="honey_img" src="/images/imgcolmena/engranaje.svg" alt="">
+                    <div class="honey_title">Mejora de la eficiencia</div>
+                </li>
+                <li class="honeyicons">
+                    <img class="honey_img" src="/images/imgcolmena/abejaicon.svg" alt="">
+                    <div class="honeycomb_title">Mejora de la eficiencia</div>
+                </li>
+                <li class="honeyicons">
+                    <img class="honey_img" src="/images/imgcolmena/cell.svg" alt="">
+                    <div class="honey_title">Mejora de la eficiencia</div>
+                </li>
+                <li class="honeyicons">
+                    <img class="honey_img" src="/images/imgcolmena/miel.svg" alt="">
+                    <div class="honey_title">Mejora de la eficiencia</div>
+                </li>
+                <li class="honeyicons">
+                    <img class="honey_img" src="/images/imgcolmena/engranaje.svg" alt="">
+                    <div class="honey_title">Mejora de la eficiencia</div>
+                </li>
+            </ul>
         </div>
 
     </section>
@@ -159,6 +183,7 @@
                                 ambiental agrícola.</p>
                         </div>
                     </div>
+
                     <div class="secondslide">
                         <img class="img1slide" src="/images/ovalosensores1.svg" alt="">
                         <img class="img2slide" src="/images/ovalosensores2.svg" alt="">
@@ -182,7 +207,9 @@
                                 dispositivo convierte la fuerza aplicada sobre él en una señal eléctrica, lo que permite
                                 medir el peso de un objeto mediante un voltaje correspondiente.</p>
                         </div>
+
                     </div>
+
                 </div>
 
             </div>
