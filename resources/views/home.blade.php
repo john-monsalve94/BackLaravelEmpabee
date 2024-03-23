@@ -64,11 +64,11 @@
             <ul class="honeycomb">
                 <li class="honeyicons">
                     <img class="honey_img" src="/images/imgcolmena/engranaje.svg" alt="">
-                    <div class="honey_title">Mejora de la eficiencia</div>
+                    <div class="honey_title">Mejora de la Eficiencia</div>
                 </li>
                 <li class="honeyicons">
                     <img class="honey_img" src="/images/imgcolmena/abejaicon.svg" alt="">
-                    <div class="honeycomb_title">Mejora de la eficiencia</div>
+                    <div class="honey_title">Mejora de la eficiencia</div>
                 </li>
                 <li class="honeyicons">
                     <img class="honey_img" src="/images/imgcolmena/cell.svg" alt="">

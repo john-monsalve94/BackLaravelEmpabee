@@ -33,10 +33,10 @@ Route::get('sesion', function () {
 
 
 
-  
+
 
 Route::get('/notificacion', function () {
-    return view('pages/pruebas/notificacion',['user_id'=>Auth::id()]);
+    return view('pages/pruebas/notificacion', ['user_id' => Auth::id()]);
 })->middleware(['auth']);
 
 
