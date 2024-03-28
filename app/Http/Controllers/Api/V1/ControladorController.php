@@ -44,7 +44,7 @@ class ControladorController extends Controller
     public function store(Request $request)
     {
         $colmena_id = $request->input('colmena_id');
-        $controlador = Controlador::create(['colmena_id', $colmena_id]);
+        $controlador = Controlador::create(['colmena_id' => $colmena_id]);
         $tipo_sensores_id = TipoSensor::pluck('id')->toArray();
         foreach ($tipo_sensores_id as $tipo_sensor_id) {
             Sensor::factory()->create([
@@ -65,7 +65,7 @@ class ControladorController extends Controller
 
     public function destroy(string $uuid)
     {
-        $controlador = Controlador::where('uuid',$uuid)->first();
+        $controlador = Controlador::where('uuid', $uuid)->first();
         $controlador->delete();
         return response()->json(['message' => 'Controlador eliminado correctamente']);
     }

@@ -16,6 +16,7 @@
         "vite": "^5.0.0"
     },
     "dependencies": {
+        "@mdi/font": "^7.4.47",
         "laravel-echo": "^1.16.0",
         "pusher-js": "^8.4.0-rc2",
         "socket.io-client": "^4.7.4"

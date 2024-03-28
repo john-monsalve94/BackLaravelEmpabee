@@ -1,3 +1,33 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+    --primary-color:#F7A733;
+    --quaternary-color:#FDEBC8;
+}
+
+.paginator-empabee > *:first-child {
+    width: 100%;
+    display: flex;
+}
+
+.paginator-empabee > *:first-child
+> :nth-child(2) > :nth-child(1)
+> :nth-child(1){
+    font-size: 1.5rem;
+    color:var(--primary-color);
+}
+
+.paginator-empabee > *:first-child
+> :nth-child(2) > :nth-child(2)
+> :nth-child(1) span,
+.paginator-empabee > *:first-child
+> :nth-child(2) > :nth-child(2)
+> :nth-child(1) a{
+    color:black;
+    background-color: var(--quaternary-color);
+    border-color: var(--primary-color);
+}
+
+
