@@ -1,4 +1,4 @@
-@if (empty($medidas))
+@if ($medidas->isEmpty())
     <p class="text-center text-5xl">No hay medidas para mostrar</p>
 @else
     <section class="mb-5 flex flex-col p-2 border border-orange-400 rounded-md w-[80%] mx-auto">

@@ -3,31 +3,68 @@
 @tailwind utilities;
 
 :root {
-    --primary-color:#F7A733;
-    --quaternary-color:#FDEBC8;
+    --primary-color: #F7A733;
+    --quaternary-color: #FDEBC8;
 }
 
-.paginator-empabee > *:first-child {
+.paginator-empabee>*:first-child {
     width: 100%;
     display: flex;
 }
 
-.paginator-empabee > *:first-child
-> :nth-child(2) > :nth-child(1)
-> :nth-child(1){
+.paginator-empabee>*:first-child> :nth-child(2)> :nth-child(1)> :nth-child(1) {
     font-size: 1.5rem;
-    color:var(--primary-color);
+    color: var(--primary-color);
 }
 
-.paginator-empabee > *:first-child
-> :nth-child(2) > :nth-child(2)
-> :nth-child(1) span,
-.paginator-empabee > *:first-child
-> :nth-child(2) > :nth-child(2)
-> :nth-child(1) a{
-    color:black;
+.paginator-empabee>*:first-child> :nth-child(2)> :nth-child(2)> :nth-child(1) span,
+.paginator-empabee>*:first-child> :nth-child(2)> :nth-child(2)> :nth-child(1) a {
+    color: black;
     background-color: var(--quaternary-color);
     border-color: var(--primary-color);
 }
 
+.paginator-empabee>*:first-child> :nth-child(2)> :nth-child(2)> :nth-child(1) span:hover,
+.paginator-empabee>*:first-child> :nth-child(2)> :nth-child(2)> :nth-child(1) a:hover {
+    color: var(--quaternary-color);
+    background-color: var(--primary-color);
+}
 
+
+.hexagon {
+    position: relative;
+    width: 1.75rem;
+    height: 3.2rem;
+    background-color: var(--primary-color);
+    border-radius: 0.3rem/0.1rem;
+}
+
+.hexagon::before,
+.hexagon::after{
+    content: '';
+    position: absolute;
+    width: inherit;
+    height: inherit;
+    background-color: inherit;
+    border-radius: inherit;
+}
+
+.hexagon::before {
+    top: 0;
+    left: 0;
+    transform: rotate(60deg);
+  }
+
+  .hexagon::after {
+    bottom: 0;
+    left: 0;
+    transform: rotate(-60deg);
+  }
+
+
+.hexagon button{
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+}

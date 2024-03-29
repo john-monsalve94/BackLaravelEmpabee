@@ -112,7 +112,7 @@ class MedidaController extends Controller
             default:
                 break;
         }
-        $medidas = $medidas->latest()->get();
+        $medidas = $medidas->get();
 
 
         return response()->json($medidas);

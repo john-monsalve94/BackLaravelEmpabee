@@ -40,7 +40,7 @@
                     <x-side-nav-item :route="route('dashboard')" :parentRoute="'dashboard'" :icon="'home'" :itemName="'Dashboard'"></x-side-nav-item>
                     <x-side-nav-item :route="''" :parentRoute="'no_rute'" :icon="'bar_chart'" :itemName="'Graficos de Producción'"></x-side-nav-item>
                     <x-side-nav-item :route="''" :parentRoute="'no_rute'" :icon="'person'" :itemName="'Perfil'"></x-side-nav-item>
-                    <x-side-nav-item :route="''" :parentRoute="'no_rute'" :icon="'hive'" :itemName="'Colmenas'"></x-side-nav-item>
+                    <x-side-nav-item :route="route('colmenas.index')" :parentRoute="'colmenas'" :icon="'hive'" :itemName="'Colmenas'"></x-side-nav-item>
                     <li>
                         <form action="{{ route('logout') }}" method="post">
                             @csrf
@@ -55,11 +55,11 @@
                 </ul>
             </nav>
             <section>
-                <img src="{{ asset('assets/images/L_EmpaBee 4.png') }}" alt="">
+                <img src="{{ asset('assets/images/l_empaBee_4.png') }}" alt="logotipo empabee">
             </section>
         </aside>
 
-        <main class="w-full h-full flex flex-col gap-5">
+        <main class="w-full h-full flex flex-col gap-5 overflow-y-auto max-h-[800px]">
             @yield('contenido')
         </main>
 

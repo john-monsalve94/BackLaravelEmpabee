@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('pages/colmenas/home');
+    return view('welcome');
 });
 
 Route::get('/notificacion', function () {
@@ -32,6 +32,20 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     Route::resource('colmenas', ColmenaController::class);
+    Route::group([
+        'prefix'=> 'colmenas/{colmena}'
+    ],function(){
+        Route::group([
+            'prefix'=>'graficas'
+        ],function(){
+            Route::controller(ColmenaController::class)->group(function(){
+                Route::get('/','index_graficas')->name('colmena_graficas');
+                Route::get('temperatura','temperatura')->name('colmena_temperatura');
+                Route::get('peso','peso')->name('colmena_peso');
+                Route::get('humedad','humedad')->name('colmena_humedad');
+            });
+        });
+    });
 
     Route::group([
         'prefix'=>'dashboard'
