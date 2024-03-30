@@ -36,6 +36,13 @@ Route::middleware('auth')->group(function () {
         'prefix'=> 'colmenas/{colmena}'
     ],function(){
         Route::group([
+            'prefix'=>'reportes'
+        ],function(){
+            Route::controller(ColmenaController::class)->group(function(){
+                Route::get('/','index_reportes')->name('colmena_reportes');
+            });
+        });
+        Route::group([
             'prefix'=>'graficas'
         ],function(){
             Route::controller(ColmenaController::class)->group(function(){

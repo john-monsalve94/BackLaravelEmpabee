@@ -10,6 +10,7 @@ use App\Models\Medida;
 use App\Models\Notificacion;
 use App\Models\Reporte;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ReporteController extends Controller
 {
@@ -28,7 +29,8 @@ class ReporteController extends Controller
         $estado = $request->query('estado', 'Todos');
         $colmena_id = $request->query('colmena_id');
 
-        $reportes = Reporte::with($relations)->whereHas('controlador', function ($query) use ($colmena_id) {
+        $reportes = Reporte::with($relations)->whereHas('controlador.colmena', function ($query) use ($colmena_id) {
+            $query->where('user_id', Auth::id());
             $query->where('colmena_id', $colmena_id);
         });
 

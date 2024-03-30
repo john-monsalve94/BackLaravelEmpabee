@@ -51,12 +51,25 @@
                     data: {
                         labels: etiquetas,
                         datasets: [{
-                            label: "{{ $tipo }}",
+                            label: data[0].simbolo,
                             data: valores,
                             borderColor: '#F7A733',
-                            borderWidth: 1
+                            backgroundColor: '#F7A733',
+                            pointBackgroundColor: '#FDEBC8',
+                            pointHoverBackgroundColor: 'F7A733',
+                            borderJoinStyle: 'round',
+                            borderCapStyle: 'round',
+                            borderWidth: 3,
+                            // pointHitRadius:50
                         }]
                     },
+                    options: {
+                        scales: {
+                            y: {
+                                stacked: true
+                            }
+                        }
+                    }
                 });
             },
             error: function(xhr, status, error) {
