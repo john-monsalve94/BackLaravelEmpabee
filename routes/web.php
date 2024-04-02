@@ -3,7 +3,7 @@
 use App\Http\Controllers\Api\V1\MedidaController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Web\ColmenaController;
-use App\Http\Controllers\web\DashboardController;
+use App\Http\Controllers\Web\DashboardController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
