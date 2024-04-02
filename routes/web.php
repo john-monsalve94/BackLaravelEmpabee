@@ -31,10 +31,17 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
-    Route::resource('colmenas', ColmenaController::class);
+    Route::resource('colmenas', ColmenaController::class)->except('edit');
     Route::group([
         'prefix'=> 'colmenas/{colmena}'
     ],function(){
+        Route::group([
+            'prefix'=>'configuracion'
+        ],function(){
+            Route::get('/',[ColmenaController::class,'configuracion'])->name('colmenas.configuracion');
+            Route::get('actualizar',[ColmenaController::class,'edit'])->name('colmenas.edit');
+            Route::post('add_controlador',[ColmenaController::class,'create_controlador'])->name('colmenas.create_controlador');
+        });
         Route::group([
             'prefix'=>'reportes'
         ],function(){

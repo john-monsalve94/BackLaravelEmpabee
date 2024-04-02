@@ -4,8 +4,11 @@ namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
 use App\Models\Colmena;
+use App\Models\Controlador;
 use App\Models\Medida;
 use App\Models\Reporte;
+use App\Models\Sensor;
+use App\Models\TipoSensor;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -59,16 +62,38 @@ class ColmenaController extends Controller
             $query->where('colmena_id', $colmena->id);
             $tipo = request()->query('tipo');
             if ($tipo) {
-                $query->where('titulo_reporte',$tipo);
+                $query->where('titulo_reporte', $tipo);
             }
         })->latest()->paginate(9);
 
         return view('pages/colmenas/reportes', ['colmena' => $colmena, 'reportes' => $reportes]);
     }
 
+    public function configuracion(Colmena $colmena)
+    {
+        $controladores = Controlador::withoutTrashed()
+            ->where('colmena_id', $colmena->id)
+            ->latest()
+            ->paginate(3);
+        return view('pages/colmenas/configuracion', ['controladores' => $controladores, 'colmena' => $colmena]);
+    }
+
     public function create()
     {
         //
+    }
+
+    public function create_controlador(Colmena $colmena)
+    {
+        $controlador = Controlador::create(['colmena_id' => $colmena->id]);
+        $tipo_sensores_id = TipoSensor::pluck('id')->toArray();
+        foreach ($tipo_sensores_id as $tipo_sensor_id) {
+            Sensor::factory()->create([
+                'tipo_sensor_id' => $tipo_sensor_id,
+                'controlador_id' => $controlador->uuid
+            ]);
+        }
+        return  redirect()->route('colmenas.configuracion', ['colmena' => $colmena->id]);
     }
 
     public function store(Request $request)
@@ -89,16 +114,22 @@ class ColmenaController extends Controller
 
     public function edit(Colmena $colmena)
     {
-        //
+        $controladores = Controlador::withoutTrashed()
+            ->where('colmena_id', $colmena->id)
+            ->latest()
+            ->paginate(3);
+        return view('pages/colmenas/configuracion', ['controladores' => $controladores, 'colmena' => $colmena]);
     }
 
     public function update(Request $request, Colmena $colmena)
     {
-        //
+        $colmena->update($request->all());
+        return  redirect()->route('colmenas.configuracion', ['colmena' => $colmena->id]);
     }
 
     public function destroy(Colmena $colmena)
     {
-        //
+        $colmena->delete();
+        return redirect()->route('colmenas.index');
     }
 }
