@@ -13,7 +13,7 @@
         ) {
             $temperatura_avg = ['rounded-bl-md', 'bg-red-400'];
         } elseif (
-            $colmena->temperatura_maxima - $reporte->promedio_temperatura >= 0.5 * $dif_temperatura ||
+            $colmena->temperatura_maxima - $reporte->promedio_temperatura <= 0.5 * $dif_temperatura ||
             $reporte->promedio_temperatura - $colmena->temperatura_minima >= 0.7 * $dif_temperatura
         ) {
             $temperatura_avg = ['rounded-bl-md', 'bg-yellow-400'];
@@ -44,7 +44,7 @@
             // $titulo_reporte = ReportStatus::ALERTA;
             $humedad_avg = ['rounded-br-md', 'bg-yellow-400'];
         } elseif (
-            $colmena->humedad_maxima - $reporte->promedio_humedad >= 0.5 * $dif_humedad ||
+            $colmena->humedad_maxima - $reporte->promedio_humedad <= 0.5 * $dif_humedad ||
             $reporte->promedio_humedad - $colmena->humedad_minima >= 0.7 * $dif_humedad
         ) {
             // $titulo_reporte = ReportStatus::ADVERTENCIA;
