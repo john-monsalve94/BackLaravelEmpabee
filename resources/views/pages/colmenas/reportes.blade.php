@@ -9,9 +9,9 @@
         @if ($reportes->isEmpty())
             <p class="text-center text-5xl mx-auto">No hay reportes que mostrar</p>
         @else
-            <section class="mx-auto flex flex-wrap justify-around gap-2">
+            <section class="mx-auto w-full flex flex-wrap justify-around gap-2">
                 @foreach ($reportes as $reporte)
-                    <x-card-reporte :reporte="$reporte"></x-card-reporte>
+                    <x-card-reporte :colmena="$colmena" :reporte="$reporte"></x-card-reporte>
                 @endforeach
             </section>
             <section class="flex justify-end w-[93%] mx-auto paginator-empabee">

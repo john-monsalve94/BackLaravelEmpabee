@@ -51,7 +51,7 @@
                     data: {
                         labels: etiquetas,
                         datasets: [{
-                            label: data[0].simbolo,
+                            label: !!data[0] ? data[0].simbolo : '',
                             data: valores,
                             borderColor: '#F7A733',
                             backgroundColor: '#F7A733',
