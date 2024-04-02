@@ -29,7 +29,13 @@ Route::group([
     Route::group([
         'middleware' => 'auth:api',
     ], function () {
-        Route::apiResource('colmenas', ColmenaV1::class);
+        Route::apiResource('colmenas', ColmenaV1::class)->names([
+            'index' => 'abejas.index',
+            'store' => 'abejas.store',
+            'show' => 'abejas.show',
+            'update' => 'abejas.update',
+            'destroy' => 'abejas.destroy',
+        ]);
         Route::get('reportes', [ReporteV1::class, 'index']);
         Route::apiResource('controladores',ControladorV1::class)->only(['index','store']);
         Route::delete('controladores',[ControladorV1::class,'destroy']);
