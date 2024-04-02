@@ -3,7 +3,8 @@
     "type": "module",
     "scripts": {
         "dev": "vite",
-        "build": "vite build"
+        "build": "vite build",
+        "scanTailwind": "npx tailwindcss -i ./resources/css/app.css -o ./resources/css/estilos.css --watch"
     },
     "devDependencies": {
         "@tailwindcss/forms": "^0.5.2",

@@ -46,9 +46,9 @@
 
         </div>
 
-        <a href="#">No tienes cuenta ?</a>
+        <a href="register">No tienes cuenta ?</a>
         
-        <x-primary-button class="btnsesion text-nowrap ms-3">
+        <x-primary-button class=" text-nowrap ms-3"> {{-- btnsesion es el nomrbre que está editado en app.css --}}
             {{ __('Inicia sesión') }}
             <img class="imgsesion" src="/images/row.svg">
         </x-primary-button>

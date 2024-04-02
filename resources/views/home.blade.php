@@ -1,40 +1,79 @@
 @extends('layouts/template')
 
 @section('estilos')
-    <link rel="stylesheet" href="/css/home.css">
+    <link rel="stylesheet" href="/css/estilos.css">
 @endsection
 
 @section('nav')
     <header>
-        <nav class="bg-white py-6 relative">
+        <nav class=" bg-white py-6 relative text-center">
             <div class="container mx-auto flex px-8 xl:px-0">
                 {{-- Aquí va la imagen con link --}}
                 {{-- <a href="#">
                     <img src="/images/marco.svg" alt="">
                 </a> --}}
                 {{-- Aquí va la imagen con link --}}
+
+
                 <div class="logonav flex flex-grow pl-20 items-center">
                     <a href="#">
                         <img src="/images/logo.svg">
                     </a>
 
                 </div>
-                <div class="flex lg:hidden">
+
+                {{-- <div class="flex lg:hidden cursor-pointer">
                     <img src="/images/menu.svg" onclick="openMenu();">
                 </div>
+
                 <div id="menu"
                     class="lg:flex hidden flex-grow justify-end absolute lg:relative lg:top-0 top-28 left-0 bg-white w-full lg:w-auto items-center py-14 lg:py-0 px-8 sm:px-24 lg:px-0 ">
                     <div class="flex flex-col lg:flex-row mb-8 lg:mb-0">
                         <a href="" class="text-black lg:mr-9 mb-8 lg:mb-0 justify-items-end">Nosotros</a>
                     </div>
                     <div class="flex flex-col lg:flex-row text-center">
-                        <a href="#"
+                        <a href="register"
                             class="text-black bg-amber-200 py-4 px-5 rounded-lg hover:bg-amber-300 hover:text-white transition duration-200 ease-in-out lg:mr-5 mb-8 lg:mb-0">Registrarse</a>
                         <a href="login"
                             class="text-black bg-gradient-to-b from-amber-600 to-amber-100 py-4 px-5 rounded-lg hover:bg-amber-300 hover:text-white transition duration-200 ease-in-out mb-8 lg:mb-0">Iniciar
                             Sesión</a>
                     </div>
+                </div> --}}
+
+                {{-- AQUÍ --}}
+
+
+                <input type="checkbox" id="menu" class="peer hidden">
+                <label for="menu"
+                    class="bg-open-menu w-6 h-5 bg-cover bg-center cursor-pointer peer-checked:bg-close-menu transition-all z-50 md:hidden"></label>
+
+                <div
+                    class="fixed inset-0 bg-gradient-to-b from-white/70 to-black/70 translate-x-full peer-checked:translate-x-0 transition-transform z-40 md:static md:bg-none md:translate-x-0">
+
+                    <ul
+                        class="absolute inset-x-0 top-24 p-12 bg-white w-[90%] mx-auto rounded-md h-max text-center grid gap-6 font-bold text-dark-blue md:w-max md:bg-transparent md:p-0 md:grid-flow-col md:static">
+
+                        <li class="nos">
+                            <a href="#" class="textnos text-black lg:mr-9 mb-8 lg:mb-0 ">Nosotros</a>
+                        </li>
+
+                        <div class="flex flex-col lg:flex-row text-center">
+                            <a href="register"
+                                class="text-black bg-amber-200 py-4 px-5 rounded-lg hover:bg-amber-300 hover:text-white transition duration-200 ease-in-out lg:mr-5 mb-8 lg:mb-0">Registrarse</a>
+                            <a href="login"
+                                class="text-black bg-gradient-to-b from-amber-600 to-amber-100 py-4 px-5 rounded-lg hover:bg-amber-300 hover:text-white transition duration-200 ease-in-out mb-8 lg:mb-0">Iniciar
+                                Sesión</a>
+                        </div>
+                    </ul>
+
+
+
                 </div>
+
+
+                {{-- AQUÍ --}}
+
+
             </div>
         </nav>
     </header>
@@ -54,7 +93,7 @@
 @endsection
 
 @section('beneficio')
-    <section class="ben bg-white w-full">
+    <section class="ben pt-20 w-full ">
         <div>
             <h1 class="tituloben">Beneficios de Nuestra Plataforma</h1>
             <h2 class="subt">Potencia tu producción de miel con nuestro monitoreo en tiempo real. Maximiza eficiencia,
@@ -63,24 +102,39 @@
         <div>
             <ul class="honeycomb">
                 <li class="honeyicons">
-                    <img class="honey_img" src="/images/imgcolmena/engranaje.svg" alt="">
-                    <div class="honey_title">Mejora de la Eficiencia</div>
+                    {{-- <div class="fondoicon"></div> --}}
+                    <div class="honey_title1">Mejora de la Eficiencia</div>
+                    <img class="honey_img1 " src="/images/imgcolmena/engranaje.svg" alt="">
+                    <img class="honey_img_1">
+                    <h3 class="subhoney1">Selección precisa de procesos para aumentar la eficiencia de extracción y
+                        producción.</h3>
                 </li>
                 <li class="honeyicons">
-                    <img class="honey_img" src="/images/imgcolmena/abejaicon.svg" alt="">
-                    <div class="honey_title">Mejora de la eficiencia</div>
+                    <div class="honey_title2">Mejora de la eficiencia</div>
+                    <img class="honey_img2" src="/images/imgcolmena/abejaicon.svg" alt="">
+                    <img class="honey_img" src="" alt="">
+                    <h3 class="subhoney2">Alertas tempranas y menos interacción humana para preservar la salud de las
+                        colmenas.</h3>
                 </li>
                 <li class="honeyicons">
-                    <img class="honey_img" src="/images/imgcolmena/cell.svg" alt="">
-                    <div class="honey_title">Mejora de la eficiencia</div>
+                    <div class="honey_title3">Mejora de la eficiencia</div>
+                    <img class="honey_img3" src="/images/imgcolmena/cell.svg" alt="">
+                    <img class="honey_img" src="" alt="">
+                    <h3 class="subhoney3">Control de colmenas desde dispositivos móviles, en cualquier lugar y momento, para
+                        una gestión ágil y eficiente.</h3>
                 </li>
                 <li class="honeyicons">
-                    <img class="honey_img" src="/images/imgcolmena/miel.svg" alt="">
-                    <div class="honey_title">Mejora de la eficiencia</div>
+                    <div class="honey_title4">Mejora de la eficiencia</div>
+                    <img class="honey_img4" src="/images/imgcolmena/miel.svg" alt="">
+                    <img class="honey_img" src="" alt="">
+                    <h3 class="subhoney4">Datos en tiempo real para maximizar la producción de miel.</h3>
                 </li>
-                <li class="honeyicons">
-                    <img class="honey_img" src="/images/imgcolmena/engranaje.svg" alt="">
-                    <div class="honey_title">Mejora de la eficiencia</div>
+                <li class="honeyicons ">
+                    <div class="honey_title5">Mejora de la eficiencia</div>
+                    <img class="honey_img5" src="/images/imgcolmena/matas.svg" alt="">
+                    <img class="honey_img_5" src="" alt="">
+                    <h3 class="subhoney5">Prácticas sostenibles para cumplir con los objetivos productivos y preservar el
+                        medio ambiente.</h3>
                 </li>
             </ul>
         </div>
@@ -262,7 +316,7 @@
 
 
 
-        {{-- 
+        {{--
         <div class="caja-form">
             <form>
 
