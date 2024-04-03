@@ -99,7 +99,7 @@ Route::middleware('auth')->group(function () {
     });
 
     Route::get('medidas',[MedidaController::class,'all'])->name('medidas_web');
-    Route::get('producciones/grafica',[ProduccionController::class,'all'])->name('producciones_api');
+    Route::get('producciones/grafica',[ProduccionController::class,'all'])->name('producciones_web');
 });
 
 require __DIR__ . '/auth.php';
