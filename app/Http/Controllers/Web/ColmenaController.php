@@ -6,8 +6,10 @@ use App\Http\Controllers\Controller;
 use App\Models\Colmena;
 use App\Models\Controlador;
 use App\Models\Medida;
+use App\Models\Produccion;
 use App\Models\Reporte;
 use App\Models\Sensor;
+use App\Models\Siembra;
 use App\Models\TipoSensor;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -78,6 +80,36 @@ class ColmenaController extends Controller
         return view('pages/colmenas/configuracion', ['controladores' => $controladores, 'colmena' => $colmena]);
     }
 
+    public function index_siembras(Colmena $colmena)
+    {
+        $siembras = Siembra::where('colmena_id',$colmena->id)->latest()->paginate(10);
+        $produccion_miel = Produccion::whereHas('siembra',function($query) use ($colmena){
+            $query->where('colmena_id',$colmena->id);
+        })->sum('cantidad_miel');
+        return view('pages/colmenas/siembras',['siembras'=>$siembras,'colmena'=>$colmena,'produccion_miel'=>$produccion_miel]);
+    }
+
+    public function store_siembra(Colmena $colmena)
+    {
+        Siembra::create(['colmena_id'=>$colmena->id]);
+        return redirect()->route('colmena_siembras',['colmena'=>$colmena]);
+    }
+
+    public function create_extraccion(Colmena $colmena)
+    {
+        $siembras = Siembra::where('colmena_id',$colmena->id)->latest()->paginate(10);
+        return view('pages/colmenas/siembras',['siembras'=>$siembras,'colmena'=>$colmena]);
+    }
+
+    public function store_extraccion(Request $request,Colmena $colmena)
+    {
+        Produccion::create([
+            'siembra_id'=>$colmena->siembras()->latest()->first()->id,
+            'cantidad_miel'=>$request->input('cantidad_miel')
+        ]);
+        return redirect()->route('colmena_siembras',['colmena'=>$colmena]);
+    }
+
     public function create()
     {
         //
@@ -96,7 +128,7 @@ class ColmenaController extends Controller
         return  redirect()->route('colmenas.configuracion', ['colmena' => $colmena->id]);
     }
 
-    public function store(Request $request)
+    public function store()
     {
         $start_date = Carbon::now();
         $count_colmenas = Colmena::where('user_id', Auth::id())->count();

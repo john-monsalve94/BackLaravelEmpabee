@@ -40,7 +40,7 @@
     }
     //class="rounded-md border-2 {{ $border_color }} border-{{ $color }}-500 focus:ring-{{ $color }}-500 focus:outline-none"
 @endphp
-<form class="ml-auto" id="filtro_form" action="{{ route('colmena_reportes', ['colmena' => $colmena->id]) }}" method="get">
+<form @style(['border:none;','margin:0;','padding:0;']) class="ml-auto" id="filtro_form" action="{{ route('colmena_reportes', ['colmena' => $colmena->id]) }}" method="get">
     <select @class($estilos_select) id="filtro" name="tipo">
         <option class="bg-orange-100 checked:bg-orange-400 hover:bg-orange-300 mb-2" value=""
             {{ $tipo == '' ? 'selected' : '' }}>Filtrar

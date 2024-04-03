@@ -3,7 +3,8 @@
     "type": "module",
     "scripts": {
         "dev": "vite",
-        "build": "vite build"
+        "build": "vite build",
+        "scanTailwind": "npx tailwindcss -i ./resources/css/app.css -o ./resources/css/estilos.css --watch"
     },
     "devDependencies": {
         "@tailwindcss/forms": "^0.5.2",
@@ -12,7 +13,7 @@
         "axios": "^1.6.4",
         "laravel-vite-plugin": "^1.0.0",
         "postcss": "^8.4.31",
-        "tailwindcss": "^3.1.0",
+        "tailwindcss": "^3.4.1",
         "vite": "^5.0.0"
     },
     "dependencies": {

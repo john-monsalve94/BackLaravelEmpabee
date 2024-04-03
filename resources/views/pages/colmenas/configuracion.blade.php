@@ -62,7 +62,7 @@
                 <div class="flex justify-between items-center">
                     <a class="bg-orange-400 p-4 font-semibold rounded-md hover:bg-orange-300 w-[30%] text-lg text-center align-text-center"
                         href="{{ route('colmenas.edit',['colmena'=>$colmena->id]) }}">Editar</a>
-                    <form class="w-[30%]" action="{{ route('colmenas.destroy',['colmena'=>$colmena->id]) }}" method="post">
+                    <form @style(['border:none;','margin:0;','padding:0;']) class="w-[30%]" action="{{ route('colmenas.destroy',['colmena'=>$colmena->id]) }}" method="post">
                         @csrf
                         @method('DELETE')
                         <button class="bg-orange-300 p-4 font-semibold rounded-md hover:bg-orange-200 w-full" type="submit">Eliminar</button>
@@ -72,33 +72,33 @@
                 <div class="flex justify-between">
                     <div class="w-[45%] flex flex-col gap-2">
                         <span class="p-2 text-center bg-orange-300 font-semibold">Max</span>
-                        <span class="bg-orange-100 text-center">{{ $colmena->peso_maximo ?? 'Sin definir' }}</span>
+                        <span class="bg-orange-100 text-center">{{ $colmena->peso_maximo ?? 'Sin definir' }} KG</span>
                     </div>
                     <div class="w-[45%] flex flex-col gap-2">
                         <span class="p-2 text-center bg-orange-300 font-semibold">Min</span>
-                        <span class="bg-orange-100 text-center">{{ $colmena->peso_minimo ?? 'Sin definir' }}</span>
+                        <span class="bg-orange-100 text-center">{{ $colmena->peso_minimo ?? 'Sin definir' }} KG</span>
                     </div>
                 </div>
                 <h2 class="text-center bg-orange-400 p-2 font-bold">Humedad</h2>
                 <div class="flex justify-between">
                     <div class="w-[45%] flex flex-col gap-2">
                         <span class="p-2 text-center bg-orange-300 font-semibold">Max</span>
-                        <span class="bg-orange-100 text-center">{{ $colmena->humedad_maxima ?? 'Sin definir' }}</span>
+                        <span class="bg-orange-100 text-center">{{ $colmena->humedad_maxima ?? 'Sin definir' }} %</span>
                     </div>
                     <div class="w-[45%] flex flex-col gap-2">
                         <span class="p-2 text-center bg-orange-300 font-semibold">Min</span>
-                        <span class="bg-orange-100 text-center">{{ $colmena->humedad_minimo ?? 'Sin definir' }}</span>
+                        <span class="bg-orange-100 text-center">{{ $colmena->humedad_minimo ?? 'Sin definir' }} %</span>
                     </div>
                 </div>
                 <h2 class="text-center bg-orange-400 p-2 font-bold">Temperatura</h2>
                 <div class="flex justify-between">
                     <div class="w-[45%] flex flex-col gap-2">
                         <span class="p-2 text-center bg-orange-300 font-semibold">Max</span>
-                        <span class="bg-orange-100 text-center">{{ $colmena->temperatura_maxima ?? 'Sin definir' }}</span>
+                        <span class="bg-orange-100 text-center">{{ $colmena->temperatura_maxima ?? 'Sin definir' }} °C</span>
                     </div>
                     <div class="w-[45%] flex flex-col gap-2">
                         <span class="p-2 text-center bg-orange-300 font-semibold">Min</span>
-                        <span class="bg-orange-100 text-center">{{ $colmena->temperatura_minimo ?? 'Sin definir' }}</span>
+                        <span class="bg-orange-100 text-center">{{ $colmena->temperatura_minimo ?? 'Sin definir' }} °C</span>
                     </div>
                 </div>
             </div>

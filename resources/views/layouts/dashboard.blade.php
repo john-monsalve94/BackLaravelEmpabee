@@ -42,7 +42,7 @@
                     <x-side-nav-item :route="''" :parentRoute="'no_rute'" :icon="'person'" :itemName="'Perfil'"></x-side-nav-item>
                     <x-side-nav-item :route="route('colmenas.index')" :parentRoute="'colmenas'" :icon="'hive'" :itemName="'Colmenas'"></x-side-nav-item>
                     <li>
-                        <form action="{{ route('logout') }}" method="post">
+                        <form @style(['border:none;','margin:0;','padding:0;']) action="{{ route('logout') }}" method="post">
                             @csrf
                             <button type="submit">
                                 <div class="flex justify-center group hover:bg-orange-300 p-3 gap-2 rounded-md">

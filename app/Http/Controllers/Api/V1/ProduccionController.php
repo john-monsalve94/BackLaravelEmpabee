@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Api\V1;
 
 use App\Http\Controllers\Controller;
+use App\Models\Colmena;
 use App\Models\Produccion;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ProduccionController extends Controller
 {
@@ -22,9 +24,12 @@ class ProduccionController extends Controller
         $page = $request->query('page', 1);
         $limit = $request->query('limit', 10);
         $siembra_id = $request->query('siembra_id');
-        $producciones = Produccion::with($relations)
-            ->where('siembra_id', $siembra_id)
-            ->latest()
+        $producciones = Produccion::with($relations);
+
+        if (isset($siembra_id)) {
+            $producciones = $producciones->where('siembra_id', $siembra_id);
+        }
+        $producciones = $producciones->latest()
             ->paginate($limit, ['*'], 'page', $page);
 
         $data = $producciones->items();
@@ -38,9 +43,34 @@ class ProduccionController extends Controller
         ]);
     }
 
-    public function store(Request $request)
+    public function all(Request $request)
     {
-        $produccion = Produccion::create($request->all());
+        $siembra_id = $request->query('siembra_id');
+
+        $producciones = Produccion::select(
+            DB::raw('MONTH(created_at) as mes'), // Extrae el mes de la fecha de creación
+            DB::raw('YEAR(created_at) as anio'), // Extrae el año de la fecha de creación
+            DB::raw('SUM(cantidad_miel) as suma_miel') // Calcula la suma de la cantidad de miel producida
+        );
+
+        if (isset($siembra_id)) {
+            $producciones = $producciones->where('siembra_id', $siembra_id);
+        }
+
+        $producciones = $producciones->groupBy('mes', 'anio') // Agrupa por mes y año
+            ->orderBy('anio', 'asc') // Ordena por año ascendente
+            ->orderBy('mes', 'asc') // Ordena por mes ascendente
+            ->get();
+
+        return response()->json($producciones);
+    }
+
+    public function store(Request $request,Colmena $colmena)
+    {
+        $produccion = Produccion::create([
+            'siembra_id'=>$colmena->siembras()->latest()->first()->id,
+            'cantidad_miel'=>$request->input('cantidad_miel')
+        ]);
         return response()->json($produccion);
     }
 }

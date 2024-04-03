@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\V1\MedidaController;
+use App\Http\Controllers\Api\V1\ProduccionController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Web\ColmenaController;
 use App\Http\Controllers\Web\DashboardController;
@@ -19,11 +20,26 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('home');
+    // return 'Hola';
 });
 
+Route::get('home', function () {
+    return view('home');
+    // return 'Hola';
+});
+
+Route::get('sesion', function () {
+    return view('sesion');
+    // return 'Hola';s
+});
+
+
+
+
+
 Route::get('/notificacion', function () {
-    return view('pages/pruebas/notificacion',['user_id'=>Auth::id()]);
+    return view('pages/pruebas/notificacion', ['user_id' => Auth::id()]);
 })->middleware(['auth']);
 
 Route::middleware('auth')->group(function () {
@@ -50,6 +66,16 @@ Route::middleware('auth')->group(function () {
             });
         });
         Route::group([
+            'prefix'=>'siembras'
+        ],function(){
+            Route::controller(ColmenaController::class)->group(function(){
+                Route::get('/','index_siembras')->name('colmena_siembras');
+                Route::post('sembrar','store_siembra')->name('colmena_sembrar');
+                Route::get('extraer','create_extraccion')->name('colmena_produccion.create');
+                Route::post('extraer','store_extraccion')->name('colmena_produccion.store');
+            });
+        });
+        Route::group([
             'prefix'=>'graficas'
         ],function(){
             Route::controller(ColmenaController::class)->group(function(){
@@ -73,6 +99,7 @@ Route::middleware('auth')->group(function () {
     });
 
     Route::get('medidas',[MedidaController::class,'all'])->name('medidas_web');
+    Route::get('producciones/grafica',[ProduccionController::class,'all'])->name('producciones_api');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

@@ -42,7 +42,7 @@
                 });
 
                 let valores = data.map(medida => medida.valor);
-                let etiquetas = data.map(medida => medida.hora);
+                let etiquetas = data.map(medida => medida.fecha+" "+medida.hora);
 
                 let ctx = document.getElementById('{{ $idGrafico }}').getContext('2d');
 
