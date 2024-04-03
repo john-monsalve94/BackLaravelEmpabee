@@ -4,13 +4,47 @@
     <form method="POST" action="{{ route('register') }}">
         @csrf
 
-        <!-- Name -->
+        <!-- Fist Name -->
         <div>
-            <x-input-label for="name" :value="__('Nombre')" />
-            <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required
-                autofocus autocomplete="name" />
-            <x-input-error :messages="$errors->get('name')" class="mt-2" />
+            <x-input-label for="first-name" :value="__('Primer Nombre')" />
+            <x-text-input id="name" class="block mt-1 w-full" type="text" name="first-name" :value="old('first-name')" required
+                autofocus autocomplete="first-name" />
+            <x-input-error :messages="$errors->get('firt-name')" class="mt-2" />
         </div>
+
+        <!-- Second name -->
+
+        <div>
+            <x-input-label for="second-name" :value="__('Segundo Nombre')" />
+            <x-text-input id="second-name" class="block mt-1 w-full" type="text" name="second-name" :value="old('second-name')"
+                required autofocus autocomplete="second-name" />
+            <x-input-error :messages="$errors->get('last-name')" class="mt-2" />
+        </div>
+
+        <!-- Second name -->
+
+
+        <!-- First surname -->
+
+        <div>
+            <x-input-label for="first-surname" :value="__('Primer apellido')" />
+            <x-text-input id="first-surname" class="block mt-1 w-full" type="text" name="first-surname" :value="old('first-surname')"
+                required autofocus autocomplete="first-surname" />
+            <x-input-error :messages="$errors->get('first-surname')" class="mt-2" />
+        </div>
+
+        <!-- First surname -->
+
+        <!-- Second surname -->
+
+        <div>
+            <x-input-label for="second-surname" :value="__('Primer apellido')" />
+            <x-text-input id="second-surname" class="block mt-1 w-full" type="text" name="second-surname" :value="old('second-surname')"
+                required autofocus autocomplete="second-surname" />
+            <x-input-error :messages="$errors->get('second-surname')" class="mt-2" />
+        </div>
+
+        <!-- Second surname -->
 
         <!-- Email Address -->
         <div class="mt-4">

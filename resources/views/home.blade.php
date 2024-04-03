@@ -48,16 +48,16 @@
                     class="bg-open-menu w-6 h-5 bg-cover bg-center cursor-pointer peer-checked:bg-close-menu transition-all z-50 md:hidden"></label>
 
                 <div
-                    class="fixed inset-0 bg-gradient-to-b from-white/70 to-black/70 translate-x-full peer-checked:translate-x-0 transition-transform z-40 md:static md:bg-none md:translate-x-0">
+                    class="fixed inset-0 bg-gradient-to-b from-amber-200/70 to-black/70 translate-x-full peer-checked:translate-x-0 transition-transform z-40 md:static md:bg-none md:translate-x-0">
 
                     <ul
-                        class="absolute inset-x-0 top-24 p-12 bg-white w-[90%] mx-auto rounded-md h-max text-center grid gap-6 font-bold text-dark-blue md:w-max md:bg-transparent md:p-0 md:grid-flow-col md:static">
+                        class="absolute inset-x-0 top-24 p-12 bg-white w-[90%] mx-auto rounded-md h-max text-center grid gap-6 font-sans text-dark-blue md:w-max md:bg-transparent md:p-0 md:grid-flow-col sm:grid-flow-col md:static">
 
-                        <li class="nos">
+                        <li class="nos m-5">
                             <a href="#" class="textnos text-black lg:mr-9 mb-8 lg:mb-0 ">Nosotros</a>
                         </li>
 
-                        <div class="flex flex-col lg:flex-row text-center">
+                        <div class=" flex flex-col md:flex-row sm:flex-col gap-3 lg:flex-row text-center">
                             <a href="register"
                                 class="text-black bg-amber-200 py-4 px-5 rounded-lg hover:bg-amber-300 hover:text-white transition duration-200 ease-in-out lg:mr-5 mb-8 lg:mb-0">Registrarse</a>
                             <a href="login"
