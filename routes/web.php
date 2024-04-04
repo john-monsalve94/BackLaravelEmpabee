@@ -6,6 +6,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Web\ColmenaController;
 use App\Http\Controllers\Web\DashboardController;
 use App\Http\Controllers\Web\ProduccionController as ProduccionWeb;
+use App\Http\Controllers\Web\ProfileController as ProfileWeb;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -44,9 +45,7 @@ Route::get('/notificacion', function () {
 })->middleware(['auth']);
 
 Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::get('profile/me',[ProfileWeb::class,'show'])->name('profile.show');
 
     Route::resource('colmenas', ColmenaController::class)->except('edit');
     Route::group([

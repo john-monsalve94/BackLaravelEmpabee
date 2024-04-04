@@ -2,7 +2,6 @@
     $route_url = route('producciones_web', ['siembra_id' => $siembra->id ?? null]);
 @endphp
 <script defer>
-    alert('{{ $siembra->id }}');
     $(document).ready(() => {
         let url = "{{ $route_url }}";
         url = url.replace(/&amp;/g, '&');

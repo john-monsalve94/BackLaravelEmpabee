@@ -68,7 +68,7 @@ class User extends Authenticatable implements JWTSubject
 
     public function tipo_identificacion(): BelongsTo
     {
-        return $this->belongsTo(TipoIdentificacion::class,'tipo_identificacion_id');
+        return $this->belongsTo(TipoIdentificacion::class,'tipo_identificacions_id');
     }
 
     public function colmenas(): HasMany

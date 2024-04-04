@@ -39,7 +39,7 @@
                 <ul class="flex flex-col gap-2">
                     <x-side-nav-item :route="route('dashboard')" :parentRoute="'dashboard'" :icon="'home'" :itemName="'Dashboard'"></x-side-nav-item>
                     <x-side-nav-item :route="route('producciones.index')" :parentRoute="'producciones'" :icon="'bar_chart'" :itemName="'Graficos de Producción'"></x-side-nav-item>
-                    <x-side-nav-item :route="''" :parentRoute="'no_rute'" :icon="'person'" :itemName="'Perfil'"></x-side-nav-item>
+                    <x-side-nav-item :route="route('profile.show')" :parentRoute="'profile'" :icon="'person'" :itemName="'Perfil'"></x-side-nav-item>
                     <x-side-nav-item :route="route('colmenas.index')" :parentRoute="'colmenas'" :icon="'hive'" :itemName="'Colmenas'"></x-side-nav-item>
                     <li>
                         <form @style(['border:none;','margin:0;','padding:0;']) action="{{ route('logout') }}" method="post">
