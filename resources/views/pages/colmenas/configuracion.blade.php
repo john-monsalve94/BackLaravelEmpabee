@@ -3,7 +3,7 @@
 @section('contenido_colmena')
     <section class="flex flex-col w-[80%] mx-auto">
         @if (request()->route()->getName() == 'colmenas.edit')
-            <form action="{{ route('colmenas.update',['colmena'=>$colmena->id]) }}" method="post" class="flex flex-col gap-3">
+            <form  @style(['border:none;','margin:0;','padding:0;']) action="{{ route('colmenas.update',['colmena'=>$colmena->id]) }}" method="post" class="flex flex-col gap-3">
                 @csrf
                 @method('PUT')
                 <input type="hidden" name="id" value="{{ $colmena->id }}">
@@ -16,7 +16,7 @@
                     </div>
                     <div class="w-[45%] flex flex-col gap-2">
                         <label for="txtMinPeso" class="p-2 text-center bg-orange-300 font-semibold">Min</label>
-                        <input class="bg-orange-100 text-center border-none focus:ring-orange-400 focus:outline-none"
+                        <input  class="bg-orange-100 text-center border-none focus:ring-orange-400 focus:outline-none"
                             type="number" name="peso_minimo" id="txtMinPeso" value="{{ $colmena->peso_minimo ?? '' }}">
                     </div>
                 </fieldset>
@@ -70,7 +70,7 @@
                 </div>
                 <h2 class="text-center bg-orange-400 p-2 font-bold">Peso</h2>
                 <div class="flex justify-between">
-                    <div class="w-[45%] flex flex-col gap-2">
+                    <div @style(['width:45;']) class="w-[45%] flex flex-col gap-2">
                         <span class="p-2 text-center bg-orange-300 font-semibold">Max</span>
                         <span class="bg-orange-100 text-center">{{ $colmena->peso_maximo ?? 'Sin definir' }} KG</span>
                     </div>
@@ -87,7 +87,7 @@
                     </div>
                     <div class="w-[45%] flex flex-col gap-2">
                         <span class="p-2 text-center bg-orange-300 font-semibold">Min</span>
-                        <span class="bg-orange-100 text-center">{{ $colmena->humedad_minimo ?? 'Sin definir' }} %</span>
+                        <span class="bg-orange-100 text-center">{{ $colmena->humedad_minima ?? 'Sin definir' }} %</span>
                     </div>
                 </div>
                 <h2 class="text-center bg-orange-400 p-2 font-bold">Temperatura</h2>
@@ -98,7 +98,7 @@
                     </div>
                     <div class="w-[45%] flex flex-col gap-2">
                         <span class="p-2 text-center bg-orange-300 font-semibold">Min</span>
-                        <span class="bg-orange-100 text-center">{{ $colmena->temperatura_minimo ?? 'Sin definir' }} °C</span>
+                        <span class="bg-orange-100 text-center">{{ $colmena->temperatura_minima ?? 'Sin definir' }} °C</span>
                     </div>
                 </div>
             </div>

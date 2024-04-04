@@ -13,7 +13,7 @@
                     <span class="w-full h-full text-center font-bold text-3xl text-orange-400">{{ $produccion_miel }}L</span>
                 </div>
             @else
-                <form class="flex flex-col gap-2" action="{{ route('colmena_produccion.store', ['colmena' => $colmena->id]) }}"
+                <form  @style(['border:none;','margin:0;','padding:0;']) class="flex flex-col gap-2" action="{{ route('colmena_produccion.store', ['colmena' => $colmena->id]) }}"
                     method="post">
                     @csrf
                     <label class="font-bold text-lg" for="txtCantidadMiel">Cantidad de miel extraida (Litros)</label>

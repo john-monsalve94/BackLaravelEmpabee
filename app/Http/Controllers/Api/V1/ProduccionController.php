@@ -65,8 +65,9 @@ class ProduccionController extends Controller
         return response()->json($producciones);
     }
 
-    public function store(Request $request,Colmena $colmena)
+    public function store(Request $request)
     {
+        $colmena = Colmena::find($request->input('colmena_id'));
         $produccion = Produccion::create([
             'siembra_id'=>$colmena->siembras()->latest()->first()->id,
             'cantidad_miel'=>$request->input('cantidad_miel')
