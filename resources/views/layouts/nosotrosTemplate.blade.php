@@ -26,10 +26,11 @@
 <body>
 
     <header>
-        @yield('iniciosesion')
     </header>
 
     <main>
+
+        @yield('nosotros')
 
     </main>
 

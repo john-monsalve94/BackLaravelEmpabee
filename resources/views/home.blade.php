@@ -54,7 +54,7 @@
                         class="absolute inset-x-0 top-24 p-12 bg-white w-[90%] mx-auto rounded-md h-max text-center grid gap-6 font-sans text-dark-blue md:w-max md:bg-transparent md:p-0 md:grid-flow-col sm:grid-flow-col md:static">
 
                         <li class="nos m-5">
-                            <a href="#" class="textnos text-black lg:mr-9 mb-8 lg:mb-0 ">Nosotros</a>
+                            <a href="nosotros" class="textnos text-black lg:mr-9 mb-8 lg:mb-0 ">Nosotros</a>
                         </li>
 
                         <div class=" flex flex-col md:flex-row sm:flex-col gap-3 lg:flex-row text-center">
@@ -100,7 +100,7 @@
                 protege abejas y garantiza sostenibilidad.</h2>
         </div>
         <div>
-            <ul class="honeycomb">
+            <ul class="honeycomb py-36">
                 <li class="honeyicons">
                     {{-- <div class="fondoicon"></div> --}}
                     <div class="honey_title1">Mejora de la Eficiencia</div>
@@ -136,6 +136,7 @@
                     <h3 class="subhoney5">Prácticas sostenibles para cumplir con los objetivos productivos y preservar el
                         medio ambiente.</h3>
                 </li>
+                {{-- <li class="honeyicons honeycomb_hidden"></li> --}}
             </ul>
         </div>
 
@@ -360,7 +361,7 @@
                     <div class="mb-5">
 
                         <strong class="text-2xl">UBICACIÓN</strong><br>
-                        <p class="text-gray-900 pt-12 text-xl">
+                        <p class="text-gray-900 pt-4 text-xl">
                             Calle 5 #5-55 <br>
                             Centro <br>
                             Popayán <br>

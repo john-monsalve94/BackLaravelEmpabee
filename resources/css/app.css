@@ -42,6 +42,9 @@
     background-size: contain;
     background-position: left;
     position: relative;
+    /*  */
+    /* padding: 32%; */
+
 
 }
 
@@ -55,6 +58,9 @@
     background-position: right;
     position: relative;
     bottom: 60px;
+    /* */
+    /* width: 100%;
+    max-width: 200px; */
 }
 
 .text1 {
@@ -137,6 +143,7 @@
     font-weight: 700;
     line-height: 60px;
     letter-spacing: -1.2px;
+    margin: auto;
 }
 
 .subt {
@@ -151,11 +158,15 @@
     width: 60%;
     left: 20%;
     position: absolute;
+    margin: auto;
 }
 
 .honeycomb {
+    background-color: #111827;
     flex-wrap: wrap;
     width: 110%;
+    min-width: 100px;
+    /* max-width: 2500px; */
     margin: 15% auto;
     padding: 100px;
     position: relative;
@@ -166,15 +177,22 @@
     -webkit-box-pack: center;
     -webkit-box-align: center;
     align-items: center;
-    min-width: 100px;
     transform: translate(80px);
     right: 10%;
 }
 
 .honeyicons {
-    -webkit-box-flex: 0;
-    flex: 0 1 250px;
-    min-width: 25%;
+    /* margin: 65.4761904762px 12.5px 25px; */
+    /* -webkit-box-flex: 0; */
+    /* flex: 0 1 250px; */
+    /* width: 100%; */
+    max-width: 200px;
+    min-width: 250px;
+    margin: auto;
+    /* margin-left: calc(50% - 400px); */
+    padding: 20px;
+    top: 50px;
+    /* min-width: 25%; */
     height: 157.5px;
     margin: 75.4px 12.5px 25px;
     position: relative;
@@ -205,19 +223,19 @@
 .honey_title1,
 .honey_title5 {
     height: 100%;
-    /* display: -webkit-box; */
+    display: -webkit-box;
     display: flex;
-    /* -webkit-box-orient: vertical; */
-    /* -webkit-box-direction: normal; */
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
     flex-direction: column;
-    /* -webkit-box-pack: center; */
-    /* -webkit-hyphens: auto; */
-    /* hyphens: auto; */
-    /* word-break: break-word; */
+    -webkit-box-pack: center;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+    word-break: break-word;
     color: #F7A733;
     font-weight: 700;
     font-size: 18px;
-    /* transition: opacity 350ms; */
+    transition: opacity 350ms;
     line-height: 0%;
 }
 
@@ -1066,8 +1084,12 @@ form.formsesion {
 
 
 /******** Responsive *******/
-/*
-@media (max-width: 550px) {
+
+
+
+
+
+/* @media (max-width: 550px) {
     .honeyicons {
         margin: 811.25px 25px;
     }
@@ -1112,8 +1134,7 @@ form.formsesion {
 
     .honeycomb_Hidden:nth-child(7n + 7),
     .honeycomb_Hidden:nth-child(7n + 9),
-    .honeycomb_Hidden:nth-child(7n + 11)
-    {
+    .honeycomb_Hidden:nth-child(7n + 11) {
         display: block;
     }
 } */

@@ -4,14 +4,14 @@
     <script src="https://cdn.tailwindcss.com"></script>
 
 
-    <form method="POST" action="{{ route('login') }}">
+    <form class="text-black bg-amber-200" method="POST" action="{{ route('login') }}">
         @csrf
 
         <!-- Email Address -->
         <div>
-            <x-input-label for="email" :value="__('Correo')"/>
-            <x-text-input id="email" class="inputemail mt-1 w-full" type="email" name="email" :value="old('email')" required
-                autofocus autocomplete="username" />
+            <x-input-label for="email" :value="__('Correo')" />
+            <x-text-input id="email" class="inputemail mt-1 w-full" type="email" name="email" :value="old('email')"
+                required autofocus autocomplete="username" />
             <x-input-error :messages="$errors->get('email')" class="mt-2" />
         </div>
 
@@ -47,7 +47,7 @@
         </div>
 
         <a href="register">No tienes cuenta ?</a>
-        
+
         <x-primary-button class=" text-nowrap ms-3"> {{-- btnsesion es el nomrbre que está editado en app.css --}}
             {{ __('Inicia sesión') }}
             <img class="imgsesion" src="/images/row.svg">

@@ -18,17 +18,14 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return redirect('home');
-    // return 'Hola';
 });
 
 Route::get('home', function () {
     return view('home');
-    // return 'Hola';
 });
 
-Route::get('sesion', function () {
-    return view('sesion');
-    // return 'Hola';s
+Route::get('nosotros', function () {
+    return view('nosotros');
 });
 
 
