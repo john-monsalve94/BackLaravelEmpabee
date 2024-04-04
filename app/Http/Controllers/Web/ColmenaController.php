@@ -110,6 +110,14 @@ class ColmenaController extends Controller
         return redirect()->route('colmena_siembras',['colmena'=>$colmena]);
     }
 
+    public function produccion(Colmena $colmena,Siembra $siembra)
+    {
+        $producciones = Produccion::whereHas('siembra.colmena',function($query){
+            $query -> where('user_id',Auth::id());
+        })->latest()->paginate();
+        return view('pages/colmenas/produccion',['producciones'=>$producciones,'siembra'=>$siembra,'colmena'=>$colmena]);
+    }
+
     public function create()
     {
         //

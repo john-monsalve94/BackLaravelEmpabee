@@ -61,7 +61,6 @@ class ProduccionController extends Controller
             ->orderBy('anio', 'asc') // Ordena por año ascendente
             ->orderBy('mes', 'asc') // Ordena por mes ascendente
             ->get();
-
         return response()->json($producciones);
     }
 

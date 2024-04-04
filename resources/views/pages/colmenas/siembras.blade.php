@@ -13,8 +13,8 @@
                     <span class="w-full h-full text-center font-bold text-3xl text-orange-400">{{ $produccion_miel }}L</span>
                 </div>
             @else
-                <form  @style(['border:none;','margin:0;','padding:0;']) class="flex flex-col gap-2" action="{{ route('colmena_produccion.store', ['colmena' => $colmena->id]) }}"
-                    method="post">
+                <form @style(['border:none;', 'margin:0;', 'padding:0;']) class="flex flex-col gap-2"
+                    action="{{ route('colmena_produccion.store', ['colmena' => $colmena->id]) }}" method="post">
                     @csrf
                     <label class="font-bold text-lg" for="txtCantidadMiel">Cantidad de miel extraida (Litros)</label>
                     <input class="bg-orange-100 text-center border-none focus:ring-orange-400 focus:outline-none"
@@ -89,7 +89,9 @@
                                 {{ $siembra->fecha_fin ?? 'No finalizado aun' }}
                             </td>
                             <td @class($colum_link)>
-                                <a class="w-full h-full" href="">Ver Producción</a>
+                                <a class="w-full h-full"
+                                href="{{ route('siembra_produccion', ['colmena' => $colmena->id, 'siembra' => $siembra->id]) }}">Ver
+                                    Producción</a>
                             </td>
                         </tr>
                     @endforeach

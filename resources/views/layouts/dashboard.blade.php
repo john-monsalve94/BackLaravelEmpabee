@@ -38,7 +38,7 @@
             <nav class="flex flex-col bg-orange-100 p-4 rounded-md">
                 <ul class="flex flex-col gap-2">
                     <x-side-nav-item :route="route('dashboard')" :parentRoute="'dashboard'" :icon="'home'" :itemName="'Dashboard'"></x-side-nav-item>
-                    <x-side-nav-item :route="''" :parentRoute="'no_rute'" :icon="'bar_chart'" :itemName="'Graficos de Producción'"></x-side-nav-item>
+                    <x-side-nav-item :route="route('producciones.index')" :parentRoute="'producciones'" :icon="'bar_chart'" :itemName="'Graficos de Producción'"></x-side-nav-item>
                     <x-side-nav-item :route="''" :parentRoute="'no_rute'" :icon="'person'" :itemName="'Perfil'"></x-side-nav-item>
                     <x-side-nav-item :route="route('colmenas.index')" :parentRoute="'colmenas'" :icon="'hive'" :itemName="'Colmenas'"></x-side-nav-item>
                     <li>

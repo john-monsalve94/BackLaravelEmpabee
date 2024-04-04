@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Produccion;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class ProduccionController extends Controller
 {
@@ -17,7 +18,28 @@ class ProduccionController extends Controller
         $producciones = Produccion::whereHas('siembra.colmena',function($query){
             $query -> where('user_id',Auth::id());
         })->latest()->paginate();
-        return view('home',['producciones'=>$producciones]);
+        return view('produccion',['producciones'=>$producciones]);
+    }
+
+    public function all(Request $request)
+    {
+        $siembra_id = $request->query('siembra_id');
+
+        $producciones = Produccion::select(
+            DB::raw('MONTH(created_at) as mes'), // Extrae el mes de la fecha de creación
+            DB::raw('YEAR(created_at) as anio'), // Extrae el año de la fecha de creación
+            DB::raw('SUM(cantidad_miel) as suma_miel') // Calcula la suma de la cantidad de miel producida
+        );
+
+        if (isset($siembra_id)) {
+            $producciones = $producciones->where('siembra_id', $siembra_id);
+        }
+
+        $producciones = $producciones->groupBy('mes', 'anio') // Agrupa por mes y año
+            ->orderBy('anio', 'asc') // Ordena por año ascendente
+            ->orderBy('mes', 'asc') // Ordena por mes ascendente
+            ->get();
+        return response()->json($producciones);
     }
 
     /**
