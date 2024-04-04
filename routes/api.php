@@ -44,7 +44,13 @@ Route::group([
         Route::apiResource('medidas',MedidaV1::class)->only(['index']);
         Route::get('medidas/grafica',[MedidaV1::class,'all'])->name('medidas_api');
         Route::apiResource('siembras',SiembraV1::class)->only(['index','store']);
-        Route::apiResource('producciones',ProduccionV1::class)->only(['index','store']);
+        Route::apiResource('producciones',ProduccionV1::class)->only(['index','store'])->names([
+            'index' => 'producciones_api.index',
+            'store' => 'producciones_api.store',
+            'show' => 'producciones_api.show',
+            'update' => 'producciones_api.update',
+            'destroy' => 'producciones_api.destroy',
+        ]);
         Route::get('producciones/grafica',[ProduccionV1::class,'all'])->name('producciones_api');
     });
     Route::group([
