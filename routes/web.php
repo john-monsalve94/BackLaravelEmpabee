@@ -70,9 +70,9 @@ Route::middleware('auth')->group(function () {
         ], function () {
             Route::controller(ColmenaController::class)->group(function () {
                 Route::get('/', 'index_siembras')->name('colmena_siembras');
-                Route::get('/{siembra}', 'produccion')->name('siembra_produccion');
-                Route::post('sembrar', 'store_siembra')->name('colmena_sembrar');
                 Route::get('extraer', 'create_extraccion')->name('colmena_produccion.create');
+                Route::get('{siembra}', 'produccion')->name('siembra_produccion');
+                Route::post('sembrar', 'store_siembra')->name('colmena_sembrar');
                 Route::post('extraer', 'store_extraccion')->name('colmena_produccion.store');
             });
         });
@@ -100,7 +100,6 @@ Route::middleware('auth')->group(function () {
     });
 
     Route::resource('producciones', ProduccionWeb::class)->only('index');
-
     Route::get('medidas', [MedidaController::class, 'all'])->name('medidas_web');
     Route::get('producciones/grafica',[ProduccionWeb::class,'all'])->name('producciones_web');
 });

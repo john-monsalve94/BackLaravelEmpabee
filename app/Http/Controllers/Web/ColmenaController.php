@@ -98,6 +98,7 @@ class ColmenaController extends Controller
     public function create_extraccion(Colmena $colmena)
     {
         $siembras = Siembra::where('colmena_id',$colmena->id)->latest()->paginate(10);
+        // return response()->json($siembras);
         return view('pages/colmenas/siembras',['siembras'=>$siembras,'colmena'=>$colmena]);
     }
 
@@ -112,8 +113,9 @@ class ColmenaController extends Controller
 
     public function produccion(Colmena $colmena,Siembra $siembra)
     {
-        $producciones = Produccion::whereHas('siembra.colmena',function($query){
+        $producciones = Produccion::whereHas('siembra.colmena',function($query) use ($siembra){
             $query -> where('user_id',Auth::id());
+            $query->where('siembra_id',$siembra->id);
         })->latest()->paginate();
         return view('pages/colmenas/produccion',['producciones'=>$producciones,'siembra'=>$siembra,'colmena'=>$colmena]);
     }
