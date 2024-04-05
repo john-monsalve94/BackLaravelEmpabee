@@ -10,6 +10,7 @@ use App\Models\Medida;
 use App\Models\Notificacion;
 use App\Models\Reporte;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ReporteController extends Controller
 {
@@ -28,7 +29,8 @@ class ReporteController extends Controller
         $estado = $request->query('estado', 'Todos');
         $colmena_id = $request->query('colmena_id');
 
-        $reportes = Reporte::with($relations)->whereHas('controlador', function ($query) use ($colmena_id) {
+        $reportes = Reporte::with($relations)->whereHas('controlador.colmena', function ($query) use ($colmena_id) {
+            $query->where('user_id', Auth::id());
             $query->where('colmena_id', $colmena_id);
         });
 
@@ -117,7 +119,7 @@ class ReporteController extends Controller
                 $reporte->promedio_temperatura > $colmena->temperatura_maxima
             ) {
                 $titulo_reporte = ReportStatus::ALERTA;
-            } elseif (($colmena->temperatura_maxima - $reporte->promedio_temperatura) >= 0.5 * $dif_temperatura ||
+            } elseif (($colmena->temperatura_maxima - $reporte->promedio_temperatura) <= 0.5 * $dif_temperatura ||
                 ($reporte->promedio_temperatura - $colmena->temperatura_minima) >= 0.7 * $dif_temperatura
             ) {
                 $titulo_reporte = ReportStatus::ADVERTENCIA;
@@ -142,7 +144,7 @@ class ReporteController extends Controller
                 $reporte->promedio_humedad > $colmena->humedad_maxima
             ) {
                 $titulo_reporte = ReportStatus::ALERTA;
-            } elseif (($colmena->humedad_maxima - $reporte->promedio_humedad) >= 0.5 * $dif_humedad ||
+            } elseif (($colmena->humedad_maxima - $reporte->promedio_humedad) <= 0.5 * $dif_humedad ||
                 ($reporte->promedio_humedad - $colmena->humedad_minima) >= 0.7 * $dif_humedad
             ) {
                 $titulo_reporte = ReportStatus::ADVERTENCIA;

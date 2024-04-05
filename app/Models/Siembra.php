@@ -11,17 +11,20 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class Siembra extends Model
 {
     use HasFactory;
-    protected $table ="produccions";
+    protected $table ="siembras";
     protected $guarded = [];
 
     protected static function boot()
     {
         parent::boot();
 
-        static::creating(function ($simbra) {
-           $siembra_anterior = Siembra::where('colmena_id',$simbra->colmena_id)->latest()->first();
-           $siembra_anterior -> fecha_fin = Carbon::now();
-           $siembra_anterior->save();
+        static::creating(function ($siembra) {
+            $siembra_anterior = Siembra::where('colmena_id', $siembra->colmena_id)->latest()->first();
+
+            if ($siembra_anterior) {
+                $siembra_anterior->fecha_fin = Carbon::now();
+                $siembra_anterior->save();
+            }
         });
 
     }

@@ -1,0 +1,1 @@
+<link rel="shortcut icon" href="{{ asset('assets/images/l_empaBee_5.png') }}" type="image/x-icon">

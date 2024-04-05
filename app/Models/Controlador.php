@@ -27,7 +27,7 @@ class Controlador extends Model
 
     public function colmena(): BelongsTo
     {
-        return $this->belongsTo(Colmena::class,'colmena_id');
+        return $this->belongsTo(Colmena::class,'colmena_id')->withTrashed();
     }
 
     public function reportes(): HasMany

@@ -6,6 +6,7 @@ use App\Http\Controllers\Api\V1\ControladorController as ControladorV1;
 use App\Http\Controllers\Api\V1\MedidaController as MedidaV1;
 use App\Http\Controllers\Api\V1\NotificacionController as NotificacionV1;
 use App\Http\Controllers\Api\V1\PaisController as PaisV1;
+use App\Http\Controllers\Api\V1\ProduccionController as ProduccionV1;
 use App\Http\Controllers\Api\V1\ReporteController as ReporteV1;
 use App\Http\Controllers\Api\V1\SiembraController as SiembraV1;
 use App\Http\Middleware\VerifySensorUUID;
@@ -29,13 +30,28 @@ Route::group([
     Route::group([
         'middleware' => 'auth:api',
     ], function () {
-        Route::apiResource('colmenas', ColmenaV1::class);
+        Route::apiResource('colmenas', ColmenaV1::class)->names([
+            'index' => 'colmena_api.index',
+            'store' => 'colmena_api.store',
+            'show' => 'colmena_api.show',
+            'update' => 'colmena_api.update',
+            'destroy' => 'colmena_api.destroy',
+        ]);
         Route::get('reportes', [ReporteV1::class, 'index']);
         Route::apiResource('controladores',ControladorV1::class)->only(['index','store']);
         Route::delete('controladores',[ControladorV1::class,'destroy']);
         Route::apiResource('notificaciones',NotificacionV1::class)->only(['index','show']);
         Route::apiResource('medidas',MedidaV1::class)->only(['index']);
+        Route::get('medidas/grafica',[MedidaV1::class,'all'])->name('medidas_api');
         Route::apiResource('siembras',SiembraV1::class)->only(['index','store']);
+        Route::apiResource('producciones',ProduccionV1::class)->only(['index','store'])->names([
+            'index' => 'producciones_api.index',
+            'store' => 'producciones_api.store',
+            'show' => 'producciones_api.show',
+            'update' => 'producciones_api.update',
+            'destroy' => 'producciones_api.destroy',
+        ]);
+        Route::get('producciones/grafica',[ProduccionV1::class,'all'])->name('producciones_api');
     });
     Route::group([
         'middleware' => [VerifySensorUUID::class],

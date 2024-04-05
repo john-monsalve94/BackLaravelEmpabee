@@ -22,6 +22,7 @@ class SiembraController extends Controller
         $page = $request->query('page', 1);
         $limit = $request->query('limit', 10);
         $colmena_id = $request->query('colmena_id');
+        var_dump($colmena_id);
 
         $siembras = Siembra::with($relations)
             ->where('colmena_id', $colmena_id)

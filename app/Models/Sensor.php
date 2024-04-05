@@ -15,7 +15,7 @@ class Sensor extends Model
 
     public function controlador():BelongsTo
     {
-        return $this->belongsTo(Controlador::class,'controlador_id','uuid');
+        return $this->belongsTo(Controlador::class,'controlador_id','uuid')->withTrashed();
     }
 
     public function tipo_sensor():BelongsTo

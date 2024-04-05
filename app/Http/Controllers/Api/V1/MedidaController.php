@@ -27,7 +27,7 @@ class MedidaController extends Controller
 
         $medidas = Medida::with($relations);
 
-        $medidas = $medidas->whereHas('sensor.controlador.colmena', function ($query){
+        $medidas = $medidas->whereHas('sensor.controlador.colmena', function ($query) {
             $query->where('user_id', Auth::id());
         });
 
@@ -39,19 +39,19 @@ class MedidaController extends Controller
 
         switch ($tipo) {
             case 'humedad':
-                $medidas = $medidas->whereHas('sensor', function ($query)  {
+                $medidas = $medidas->whereHas('sensor', function ($query) {
                     $query->where('tipo_sensor_id', 1);
                 });
                 break;
 
             case 'peso':
-                $medidas = $medidas->whereHas('sensor', function ($query)  {
+                $medidas = $medidas->whereHas('sensor', function ($query) {
                     $query->where('tipo_sensor_id', 2);
                 });
                 break;
 
             case 'temperatura':
-                $medidas = $medidas->whereHas('sensor', function ($query)  {
+                $medidas = $medidas->whereHas('sensor', function ($query) {
                     $query->where('tipo_sensor_id', 3);
                 });
                 break;
@@ -72,4 +72,49 @@ class MedidaController extends Controller
         ]);
     }
 
+    public function all(Request $request)
+    {
+        $tipo = $request->query('tipo', "temperatura");
+        $relations = $request->query('relations', $this->relations);
+        $colmena_id = $request->query('colmena_id');
+
+        $medidas = Medida::with($relations);
+
+        $medidas = $medidas->whereHas('sensor.controlador.colmena', function ($query) {
+            $query->where('user_id', Auth::id());
+        });
+
+        if ($colmena_id !== null) {
+            $medidas = $medidas->whereHas('sensor.controlador', function ($query) use ($colmena_id) {
+                $query->where('colmena_id', $colmena_id);
+            });
+        }
+
+        switch ($tipo) {
+            case 'humedad':
+                $medidas = $medidas->whereHas('sensor', function ($query) {
+                    $query->where('tipo_sensor_id', 1);
+                });
+                break;
+
+            case 'peso':
+                $medidas = $medidas->whereHas('sensor', function ($query) {
+                    $query->where('tipo_sensor_id', 2);
+                });
+                break;
+
+            case 'temperatura':
+                $medidas = $medidas->whereHas('sensor', function ($query) {
+                    $query->where('tipo_sensor_id', 3);
+                });
+                break;
+
+            default:
+                break;
+        }
+        $medidas = $medidas->get();
+
+
+        return response()->json($medidas);
+    }
 }

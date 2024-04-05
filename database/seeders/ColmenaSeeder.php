@@ -10,12 +10,12 @@ use Illuminate\Database\Seeder;
 class ColmenaSeeder extends Seeder
 {
     use WithoutModelEvents;
-    
+
     public function run(): void
-    {  
+    {
         $users_id = User::pluck('id')->toArray();
         foreach ($users_id as $id) {
-            Colmena::factory(5)->create(['user_id'=>$id]);
+            Colmena::factory(100)->create(['user_id'=>$id]);
         }
     }
 }
