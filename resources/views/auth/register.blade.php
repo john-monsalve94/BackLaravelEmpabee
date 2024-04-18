@@ -14,7 +14,7 @@
 
         <!-- Primer nombre -->
         <div>
-            <x-input-label for="first-name" :value="__('Primer nombre')" />
+            <x-input-label for="first-name" :value="__('Nombre')" />
             <x-text-input id="first-name" class="block mt-1 w-full" type="text" name="primer_nombre" :value="old('first-name')"
                 required autofocus autocomplete="primer_nombre" />
             <x-input-error :messages="$errors->get('primer_nombre')" class="mt-2" />
