@@ -52,17 +52,25 @@
 
                     <ul
                         class="absolute inset-x-0 top-24 p-12 bg-white w-[90%] mx-auto rounded-md h-max text-center grid gap-6 font-sans text-dark-blue md:w-max md:bg-transparent md:p-0 md:grid-flow-col sm:grid-flow-col md:static">
-
+                        {{--
                         <li class="nos m-5">
                             <a href="nosotros" class="textnos text-black lg:mr-9 mb-8 lg:mb-0 ">Nosotros</a>
-                        </li>
+                        </li> --}}
 
                         <div class=" flex flex-col md:flex-row sm:flex-col gap-3 lg:flex-row text-center">
-                            <a href="register"
-                                class="text-black bg-amber-200 py-4 px-5 rounded-lg hover:bg-amber-300 hover:text-white transition duration-200 ease-in-out lg:mr-5 mb-8 lg:mb-0">Registrarse</a>
-                            <a href="login"
-                                class="text-black bg-gradient-to-b from-amber-600 to-amber-100 py-4 px-5 rounded-lg hover:bg-amber-300 hover:text-white transition duration-200 ease-in-out mb-8 lg:mb-0">Iniciar
-                                Sesión</a>
+                            @php
+                                $user = Auth::user();
+                            @endphp
+                            @if (isset($user))
+                                dasboard
+                            @else
+                                <a href="register"
+                                    class="text-black bg-amber-200 py-4 px-5 rounded-lg hover:bg-amber-300 hover:text-white transition duration-200 ease-in-out lg:mr-5 mb-8 lg:mb-0">Registrarse</a>
+                                <a href="login"
+                                    class="text-black bg-gradient-to-b from-amber-600 to-amber-100 py-4 px-5 rounded-lg hover:bg-amber-300 hover:text-white transition duration-200 ease-in-out mb-8 lg:mb-0">Iniciar
+                                    Sesión</a>
+                            @endif
+
                         </div>
                     </ul>
 

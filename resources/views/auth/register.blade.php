@@ -22,12 +22,12 @@
 
         <!-- Segundo nombre -->
 
-        <div class="mt-4">
+        {{-- <div class="mt-4">
             <x-input-label for="second-name" :value="__('Segundo nombre')" />
             <x-text-input id="second-name" class="block mt-1 w-full" type="text" name="segundo_nombre" :value="old('second-name')"
                 autofocus autocomplete="segundo_nombre" />
             <x-input-error :messages="$errors->get('segundo_nombre')" class="mt-2" />
-        </div>
+        </div> --}}
 
         <!-- Primer apellido -->
 
